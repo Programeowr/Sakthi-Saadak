@@ -1,10 +1,14 @@
-import Image from '../../../Images/fevicon-removebg-preview.png'
-function Header(){
-    return (
-        <h1 id="main_heading">
-            <img className ="logo" src={Image} alt="" />SAKTHI SAADHAK
-        </h1>
-    );
+import { Leaf } from 'lucide-react';
+
+function Header() {
+  return (
+    <header className="animate-fade-in">
+      <h1 className="header-title">
+        <Leaf className="logo-icon animate-float" />
+        <span className="header-text">SAKTHI SAADHAK</span>
+      </h1>
+    </header>
+  );
 }
 
-export default Header
+export default Header;

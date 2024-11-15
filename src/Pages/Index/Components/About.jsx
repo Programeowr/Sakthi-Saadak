@@ -1,20 +1,58 @@
-import Image from '../../../Images/set leaf.png'
+import { Shield, Heart, TreePine } from 'lucide-react';
 
-function About(){
-    return (
-        <>
-            <section className="about-section">
-                <img src={Image} alt="about us" className="about-image" />
-                <h2 className="index-about-h2">About Us</h2>
-                <p>The mission at Sakthi Saadhak is leading people towards healthier and sustainable ways of energy.</p>
-                <p>Through insights, solutions, and tools that help individuals and companies minimize their carbon footprint.</p>
-                <p>We make a greener and more energy-efficient world by empowering people to know and be equipped with the necessary</p>
-                <p> tools and resources that allow them to optimize their use of energy.</p>
-                <p> From smart energy saving tips through the latest in renewable technologies, we are </p>
-                <p>focused on driving change and a future of sustainable energy.</p>
-            </section>
-        </>
-    );
+function About() {
+  return (
+    <section className="about-section" id="about">
+      <div className="about-content animate-fade-up">
+        <h2 className="section-title">About Us</h2>
+        
+        <div className="mission-grid">
+          <div className="mission-card">
+            <Shield className="mission-icon" />
+            <h3>Our Mission</h3>
+            <p>
+              Leading people towards healthier and sustainable ways of energy
+              through insights, solutions, and tools that help minimize carbon
+              footprints.
+            </p>
+          </div>
+          
+          <div className="mission-card">
+            <Heart className="mission-icon" />
+            <h3>Our Values</h3>
+            <p>
+              We believe in empowering individuals and companies with the
+              necessary tools and resources to optimize their energy usage.
+            </p>
+          </div>
+          
+          <div className="mission-card">
+            <TreePine className="mission-icon" />
+            <h3>Our Vision</h3>
+            <p>
+              Creating a greener and more energy-efficient world through
+              innovation and sustainable practices.
+            </p>
+          </div>
+        </div>
+
+        <div className="stats-grid">
+          <div className="stat-card animate-count-up">
+            <h4>1M+</h4>
+            <p>Users Worldwide</p>
+          </div>
+          <div className="stat-card animate-count-up">
+            <h4>50K+</h4>
+            <p>Carbon Footprints Reduced</p>
+          </div>
+          <div className="stat-card animate-count-up">
+            <h4>100+</h4>
+            <p>Countries Reached</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default About
+export default About;

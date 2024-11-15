@@ -1,22 +1,22 @@
-import Header from './Components/Header.jsx'
-import NavBar from './Components/NavBar.jsx'
-import Content from './Components/Content.jsx'
-import About from './Components/About.jsx'
-import Footer from './Components/Footer.jsx'
-import './Index.css'
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Content from './components/Content';
+import About from './components/About';
+import Footer from './components/Footer';
+import './index.css';
 
-function Index(){
-
-    return(
-        <div id="index-body">
-            <Header />
-            <NavBar />
-            <Content />
-            <About />
-            <Footer />
-        </div>
-    );
-
+function App() {
+  return (
+    <div className="app">
+      <Header />
+      <Navbar />
+      <main>
+        <Content />
+        <About />
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
-export default Index
+export default App;
