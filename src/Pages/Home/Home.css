@@ -84,7 +84,6 @@
     color: var(--text);
     text-decoration: none;
     display: block;
-<<<<<<< Updated upstream
     transition: var(--transition);
   }
   
@@ -97,23 +96,6 @@
     padding: 8rem 2rem 4rem;
     background-color: #004239;
     text-align: center;
-=======
-    border-radius: 5px;
-    margin-bottom: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.Menubox a:hover {
-    background-color: #3e813e;
-}
-
-#parent_a_1:hover ~ #Menubox_1,
-#parent_a_2:hover ~ #Menubox_2,
-#parent_a_3:hover ~ #Menubox_3 {
-    display: block;
-}
-
->>>>>>> Stashed changes
 
   }
   

@@ -15,14 +15,14 @@ const handleBack = () => {
     <div className="ss-home-body">
       <nav className="ss-home-navbar">
       <div id="input-body">
-  <button onClick={handleBack} className="backButton">
-    <ArrowLeft className="backIcon" style={{ color: 'white' }} />
-    <span style={{ color: 'white' }}>Back</span>
-  </button>
-</div>
+        
+      </div>
 
         <div className="ss-home-nav-content">
-
+          <button onClick={handleBack} className="backButton">
+            <ArrowLeft className="backIcon" style={{ color: 'white' }} />
+            <span style={{ color: 'white' }}>Back</span>
+          </button>
         <h2 style={{ fontSize: '35px', fontFamily: "'Yanone Kaffeesatz', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", fontWeight: 400, color: '#f5f5dc' }}>
   SAKTHI SAADHAK
 </h2>
@@ -38,7 +38,7 @@ const handleBack = () => {
             <div className="ss-home-nav-item">
               View
               <div className="ss-home-dropdown">
-                <a href="/Carbon" className="ss-home-dropdown-item">Carbon Footprint</a>
+                <a href="" className="ss-home-dropdown-item">Material Comparison</a>
                 <a href="/Reports" className="ss-home-dropdown-item">Reports & Graphs</a>
                 <a href="/Educational" className="ss-home-dropdown-item">Educational Articles</a>
               </div>
