@@ -1,19 +1,19 @@
 import React from 'react';
-import { Home, Lightbulb, Thermometer, Droplets, Wind } from 'lucide-react';
+import { WashingMachine, AirVent ,Microwave,SatelliteDish  Refrigerator} from 'lucide-react';
 
 const categories = [
-  { id: 'Washing Machine', name: 'Laundry', icon: Thermometer },
-  { id: 'Refregerator', name: 'Refregerator', icon: Lightbulb },
-  { id: 'Air Conditioner', name: 'AC', icon: Wind },
-  { id: 'Water Heater', name: 'Water Heater', icon: Droplets  },
-  { id: 'Microwave', name: 'Microwave', icon: Home },
-  { id: 'Dishwasher', name: 'DIshwasher', icon: Home },
-  { id: 'Fan', name: 'Fan', icon: Home },
-  { id: 'Heater', name: 'Heater', icon: Home },
-  { id: 'Vacuum', name: 'Vacuum', icon: Home },
-  { id: 'Light', name: 'Light', icon: Home }
-
+  { id: 'Washing Machine', name: 'Laundry', icon: WashingMachine  },          // Use Home icon
+  { id: 'Refrigerator', name: 'Refrigerator', icon: Refrigerator },      // Fridge icon for Refrigerator
+  { id: 'Air Conditioner', name: 'AC', icon: AirVent },    // AirConditioner icon
+  { id: 'Water Heater', name: 'Heater', icon: Thermometer },      // Thermometer icon for Heater
+  { id: 'Microwave', name: 'Microwave', icon: Microwave },        // Microwave icon
+  { id: 'Dishwasher', name: 'Dishwasher', icon: SatelliteDish },           // Use Home icon for Dishwasher
+  { id: 'Fan', name: 'Fan', icon: Fan },                          // Fan icon
+  { id: 'Heater', name: 'Heater', icon: Heater },                 // Heater icon
+  { id: 'Vacuum', name: 'Vacuum', icon: Vacuum },                 // Vacuum icon
+  { id: 'Light', name: 'Light', icon: Lightbulb }                  // Lightbulb icon
 ];
+
 
 function CategorySelector({ selectedCategory, onCategoryChange }) {
   return (
