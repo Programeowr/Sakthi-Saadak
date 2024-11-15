@@ -24,8 +24,6 @@ function Form() {
                 password
             });
 
-            alert(response.data.message);
-
             const token = response.data.token; 
             if (token) { 
                 localStorage.setItem('token', token);

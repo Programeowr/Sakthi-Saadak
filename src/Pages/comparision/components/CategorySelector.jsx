@@ -1,11 +1,11 @@
 import React from 'react';
-import { WashingMachine, AirVent ,Microwave,SatelliteDish  Refrigerator} from 'lucide-react';
+import { WashingMachine, AirVent ,Microwave,SatelliteDish , Refrigerator} from 'lucide-react';
 
 const categories = [
-  { id: 'Washing Machine', name: 'Laundry', icon: WashingMachine  },          // Use Home icon
+  { id: 'Washing', name: 'Laundry', icon: WashingMachine  },          // Use Home icon
   { id: 'Refrigerator', name: 'Refrigerator', icon: Refrigerator },      // Fridge icon for Refrigerator
-  { id: 'Air Conditioner', name: 'AC', icon: AirVent },    // AirConditioner icon
-  { id: 'Water Heater', name: 'Heater', icon: Thermometer },      // Thermometer icon for Heater
+  { id: 'AC', name: 'AC', icon: AirVent },    // AirConditioner icon
+  { id: 'WaterHeater', name: 'Heater', icon: Thermometer },      // Thermometer icon for Heater
   { id: 'Microwave', name: 'Microwave', icon: Microwave },        // Microwave icon
   { id: 'Dishwasher', name: 'Dishwasher', icon: SatelliteDish },           // Use Home icon for Dishwasher
   { id: 'Fan', name: 'Fan', icon: Fan },                          // Fan icon
