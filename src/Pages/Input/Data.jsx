@@ -217,7 +217,7 @@ function getUniqueRatings(appliance, company) {
             'Haier': ['90W','120W','150W'],
             'Panasonic': ['120W','160W','200W'],
         },
-        'Microwave Oven' : {
+        'Microwave' : {
             'Panasonic': ['850W','1000W','1350W'],
             'LG': ['900W','1200W','1500W'],
             'Samsung': ['800W','1000W','1200W'],
@@ -366,7 +366,10 @@ function convertTimeToFloat(timeString) {
         '10-15 Mins': 0.25,
         '15-20 Mins': 0.33,
         '20-30 Mins': 0.5,
+        '30-40 Mins': 0.66,
         '30-45 Mins': 0.75,
+        '40-50 Mins': 0.75,
+        '50-60 Mins': 1,
         '45-60 Mins': 1,
         '60-90 Mins': 1.25,
         '90-120 Mins': 1.75,
@@ -864,8 +867,8 @@ async function displayInputValues(token) {
             inputValuesBody.appendChild(newRow);
             totalPower += powerConsumption;
             totalCost += indiCost;
+
         });
-        console.log(totalPower);
 
         inputHeader.textContent = `${totalPower/1000}KW-h`;
         await savePowerCost(totalPower, totalCost);

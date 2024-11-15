@@ -131,7 +131,6 @@ app.post('/save-power', authenticateToken, async (req, res) => {
   const currentDate = date;
 
   try {
-    // Find any power records for today
     const existingRecord = await Power.findOne({
       userId: req.user.id,
       date: currentDate,

@@ -3,6 +3,41 @@ import Output from './Output.jsx'
 
 function SelectBox(){
 
+    function handleButtonClick(){
+        const appSelect = document.getElementById('Appliance');
+        const compSelect = document.getElementById('Company');
+        const timeSelect = document.getElementById('Time');
+        const freqSelect = document.getElementById('Freq');
+        const rateSelect = document.getElementById('Rating');
+
+        if (!appSelect.value) {
+            alert('Please select an appliance.');
+            appSelect.focus();
+            return false;
+        }
+        if (!compSelect.value) {
+            alert('Please select a company.');
+            compSelect.focus();
+            return false;
+        }
+        if (!timeSelect.value) {
+            alert('Please select the amount of time used.');
+            timeSelect.focus();
+            return false;
+        }
+        if (!freqSelect.value) {
+            alert('Please select the frequency.');
+            freqSelect.focus();
+            return false;
+        }
+        if (!rateSelect.value) {
+            alert('Please select the power rating.');
+            rateSelect.focus();
+            return false;
+        }
+        return true; 
+    }
+
     return(
         <>
             <h2 id="input-energy-h2">INPUT YOUR ENERGY USAGE</h2>
@@ -63,9 +98,9 @@ function SelectBox(){
                 
             </div>
 
-            <button id="Input">Submit</button>
+            <button id="Input" onClick={handleButtonClick}>Submit</button>
         </>
     );
 }
 
-export default SelectBox
+export default SelectBox

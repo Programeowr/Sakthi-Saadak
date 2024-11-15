@@ -24,11 +24,7 @@ function NavArticle(){
     };
 
     const handleComparision = () => {
-<<<<<<< Updated upstream
-        navigate("/comparision");
-=======
         navigate("/Comparision");
->>>>>>> Stashed changes
     };
 
     const handleReports = () => {
