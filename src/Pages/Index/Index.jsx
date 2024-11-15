@@ -7,14 +7,17 @@ import './index.css';
 
 function App() {
   return (
-    <div className="app">
+    <div className="index-app">
+        <div className = "index-body">
       <Header />
+      
       <Navbar />
       <main>
         <Content />
         <About />
       </main>
       <Footer />
+       </div>
     </div>
   );
 }

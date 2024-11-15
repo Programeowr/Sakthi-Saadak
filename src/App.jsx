@@ -28,6 +28,7 @@ function App() {
         <Route path="/Comparision" element={<MaterialComparision />} />
         <Route path="/Reports" element={<Reports />} />
         <Route path="/Forgot" element={<ForgotPassword />} />
+
       </Routes>
     </Router>
   )

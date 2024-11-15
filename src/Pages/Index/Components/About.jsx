@@ -36,20 +36,7 @@ function About() {
           </div>
         </div>
 
-        <div className="stats-grid">
-          <div className="stat-card animate-count-up">
-            <h4>1M+</h4>
-            <p>Users Worldwide</p>
-          </div>
-          <div className="stat-card animate-count-up">
-            <h4>50K+</h4>
-            <p>Carbon Footprints Reduced</p>
-          </div>
-          <div className="stat-card animate-count-up">
-            <h4>100+</h4>
-            <p>Countries Reached</p>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

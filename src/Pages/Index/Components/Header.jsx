@@ -1,11 +1,10 @@
-import { Leaf } from 'lucide-react';
+import { Leaf, ZapIcon } from 'lucide-react';
 
 function Header() {
   return (
     <header className="animate-fade-in">
       <h1 className="header-title">
-        <Leaf className="logo-icon animate-float" />
-        <span className="header-text">SAKTHI SAADHAK</span>
+        <h1 style={{ fontSize: '45px', fontFamily: "'Yanone Kaffeesatz', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", fontWeight: 400 }}>SAKTHI SAADHAK</h1>
       </h1>
     </header>
   );

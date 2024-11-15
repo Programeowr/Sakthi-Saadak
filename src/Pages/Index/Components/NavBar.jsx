@@ -6,11 +6,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="nav-container">
-        <button className="mobile-menu-btn" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X /> : <Menu />}
-        </button>
-        
+      <div className="nav-container">    
         <ul className={`nav-links ${isOpen ? 'nav-active' : ''}`}>
           <li>
             <a href="/login" className="nav-link">

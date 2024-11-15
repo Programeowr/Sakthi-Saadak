@@ -36,15 +36,16 @@ function Content() {
 
           <div className="cta-buttons">
             <a 
-              href="/signup"
+              href="/Signup"
               className="primary-btn animate-scale-in"
             >
               Get Started
               <ArrowRight className="btn-icon" />
             </a>
-            <button className="secondary-btn animate-scale-in">
+            <a
+            href="/FAQ" className="secondary-btn animate-scale-in">
               Learn More
-            </button>
+            </a>
           </div>
         </div>
 

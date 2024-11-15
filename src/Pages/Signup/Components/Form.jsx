@@ -8,6 +8,7 @@ function Form(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [postalCode, setPostalCode] = useState('');
 
     function handleUsername(e){
         setUsername(e.target.value)
@@ -25,6 +26,10 @@ function Form(){
         setConfirmPassword(e.target.value)
     }
 
+    function handlePostalCode(e){
+        setPostalCode(e.target.value)
+    }
+
     const clickSignup = async (e) => {
         e.preventDefault(); 
 
@@ -33,24 +38,20 @@ function Form(){
             return;
         }
 
-        const userData = { username, email, password };
+        const userData = { username, email, password, postalCode };
 
         try {
-            const response = await axios.post('http://localhost:5000/signup', {
-              username,
-              email,
-              password,
-            });
+            const response = await axios.post('http://localhost:5000/signup', userData);
 
             const { token } = response.data; 
             localStorage.setItem('token', token);
             
             Navigate('/Home')
 
-          } catch (error) {
-            alert("Error faced during Singup. Try again");
+        } catch (error) {
+            alert("Error during signup. Try again");
             console.error('Error during signup:', error.response.data);
-          }
+        }
     };
 
     return (
@@ -75,6 +76,10 @@ function Form(){
                     <label htmlFor="confirm-password">Confirm Password:</label>
                     <input type="password" id="confirm-password" name="confirm-password" onChange={handleConfirmPassword} required />
                 </div>
+                <div>
+                    <label htmlFor="postal-code">Postal Code:</label>
+                    <input type="text" id="postal-code" name="postal-code" onChange={handlePostalCode} required />
+                </div>
                 <button type="submit" className="signup-button">Signup</button>
             </form>
             <div className="info">
@@ -84,4 +89,4 @@ function Form(){
     );
 }
 
-export default Form
+export default Form;
