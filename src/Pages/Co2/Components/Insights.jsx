@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getRecommendations } from '../../../../Server/Gemini.ts';
+import { getRecommendations } from '../JSB/CarbonGemini.ts';
 
 function Insights() {
     const [recommendations, setRecommendations] = useState([]);
@@ -9,7 +9,7 @@ function Insights() {
             const calculationElement = document.getElementById('calculation');
             const emissionValue = calculationElement?.textContent 
                 ? parseFloat(calculationElement.textContent) 
-                : 0;
+                : 0;9
 
             const aiRecommendations = await getRecommendations(emissionValue);
             setRecommendations(aiRecommendations);

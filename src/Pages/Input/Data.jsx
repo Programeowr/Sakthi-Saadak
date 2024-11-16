@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { threshold } from 'three/webgpu';
+import { getEnergyRecommendations } from './InputGemini.ts';
 
 function Data(){
     const appSelect = document.getElementById('Appliance');
@@ -823,6 +823,8 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
     const inputEnergy = document.getElementById('input-energy-used');
     const inputThreshold = document.getElementById('input-threshold-energy');
     const inputCost = document.getElementById('input-cost-value');
+    const suggestionsList = document.getElementById('input-suggestion-list');
+    const thresholdText = document.getElementById('Threshold');
 
     inputEnergy.innerHTML = '';
     inputThreshold.innerHTML = '';
@@ -831,6 +833,26 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
     inputEnergy.textContent = `${energyUsed} W-h`;
     inputThreshold.textContent = `${energyThreshold} W-h`;
     inputCost.textContent = `₹ ${energyCost.toFixed(2)}`;
+
+    try {
+        const recommendations = await getEnergyRecommendations(energyUsed, energyThreshold, selectedAppliance);
+        
+        // Update the suggestions list
+        suggestionsList.innerHTML = '';
+        recommendations.forEach(recommendation => {
+            const li = document.createElement('li');
+            li.textContent = recommendation;
+            suggestionsList.appendChild(li);
+        });
+
+        const efficiency = ((energyUsed - energyThreshold) / energyThreshold) * 100;
+        thresholdText.textContent = efficiency > 0 
+            ? `Your energy usage is ${Math.abs(efficiency.toFixed(1))}% above average` 
+            : `Your energy usage is ${Math.abs(efficiency.toFixed(1))}% below average`;
+        thresholdText.style.color = efficiency > 0 ? '#ff4444' : '#44ff44';
+    } catch (error) {
+        console.error('Error getting AI recommendations:', error);
+    }
 
     return { energyUsed, energyCost };
 }
