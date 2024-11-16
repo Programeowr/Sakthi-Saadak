@@ -80,16 +80,20 @@ function EnergyUsage() {
       const location = locationResponse.data.location;
       const stateCost = costs[location];
 
+      // Log the response data to check the structure
+      console.log('Response data:', response.data);
+
       const transformedAppliances = response.data
         .filter(app => app.date === currentDate)
         .map(app => ({
-          id: app._id,
+          _id: app._id, // Keep the original _id
           name: app.appliance,
           consumption: app.rating * app.time,
           threshold: getThreshold(app.appliance),
           cost: ((app.rating * app.time * stateCost) / 1000).toFixed(2)
         }));
 
+      console.log('Transformed appliances:', transformedAppliances);
       setAppliances(transformedAppliances);
     } catch (error) {
       console.error('Error fetching appliances:', error);
@@ -113,21 +117,34 @@ function EnergyUsage() {
       'Iron': 1500 * 0.5,
       'Light': 20 * 8,
       'Computer': 250 * 4
-  };
+    };
     return thresholds[appliance] || 0;
   };
 
   const handleDeleteAppliance = async (id) => {
     try {
+      console.log('Deleting appliance with ID:', id); // Debug log
+      if (!id) {
+        console.error('No appliance ID provided');
+        return;
+      }
+
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/delete-appliance/${id}`, {
+      const response = await axios.delete(`http://localhost:5000/delete-appliance/${id}`, {
         headers: {
           Authorization: token
         }
       });
-      setAppliances(appliances.filter(app => app.id !== id));
+
+      if (response.status === 200) {
+        setAppliances(prevAppliances => prevAppliances.filter(app => app._id !== id));
+        console.log('Appliance deleted successfully');
+      }
     } catch (error) {
       console.error('Error deleting appliance:', error);
+      if (error.response) {
+        console.error('Error response:', error.response.data);
+      }
     }
   };
 
@@ -176,8 +193,11 @@ function EnergyUsage() {
                 </tr>
               </thead>
               <tbody id="input-inputValuesBody">
-                {appliances.map((appliance,index) => (
-                  <tr key={appliance.id || index} className={Number(appliance.consumption) > Number(appliance.threshold) ? 'threshold-exceeded' : ''}>
+                {appliances.map((appliance) => (
+                  <tr 
+                    key={appliance._id} 
+                    className={Number(appliance.consumption) > Number(appliance.threshold) ? 'threshold-exceeded' : ''}
+                  >
                     <td>{appliance.name}</td>
                     <td>{appliance.consumption}</td>
                     <td>{appliance.threshold}</td>
@@ -185,7 +205,7 @@ function EnergyUsage() {
                     <td>
                       <button 
                         className="delete-button"
-                        onClick={() => handleDeleteAppliance(appliance.id)}
+                        onClick={() => handleDeleteAppliance(appliance._id)}
                       >
                         <Trash2 size={16} />
                       </button>

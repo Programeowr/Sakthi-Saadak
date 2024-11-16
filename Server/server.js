@@ -129,6 +129,11 @@ app.get('/get-appliance', authenticateToken, async (req, res) => {
 app.delete('/delete-appliance/:id', authenticateToken, async (req, res) => {
   try {
     const applianceId = req.params.id;
+    
+    if (!applianceId) {
+      return res.status(400).json({ message: 'Appliance ID is required' });
+    }
+
     const appliance = await Appliance.findOne({ 
       _id: applianceId,
       userId: req.user.id 
@@ -148,6 +153,7 @@ app.delete('/delete-appliance/:id', authenticateToken, async (req, res) => {
     });
   }
 });
+
 
 
 app.post('/save-power', authenticateToken, async (req, res) => {

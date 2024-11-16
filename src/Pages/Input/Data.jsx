@@ -753,125 +753,6 @@ async function savePowerCost(energyUsed, energyCost) {
     }
 }
 
-async function displayInputValues(token) {
-    const thresholds = {
-        'Refrigerator': 150 * 24,
-        'Microwave': 1000 * 0.5,
-        'Washing Machine': 700 * 0.5,
-        'Electric Stove': 1500 * 1,
-        'Water Heater': 2000 * 0.5,
-        'Dishwasher': 1500 * 1,
-        'Kettle': 1500 * 0.5,
-        'Fan': 70 * 8,
-        'Television': 120 * 4,
-        'Vacuum': 1000 * 0.5,
-        'Blender': 500 * 0.2,
-        'Iron': 1500 * 0.5,
-        'Light': 20 * 8,
-        'Computer': 250 * 4
-    };
-
-    const costs = {
-        'Andhra Pradesh' : 6,
-        'Arunachal Pradesh' : 5.5,
-        'Assam' : 5.75,
-        'Bihar' : 6.75,
-        'Chhattisgarh' : 5,
-        'Goa' : 3.75,
-        'Gujarat' : 5.25,
-        'Haryana' : 6.25,
-        'Himachal Pradesh' : 4.25,
-        'Jharkhand' : 6.25,
-        'Karnataka' : 5.5,
-        'Kerala' : 4.25,
-        'Madhya Pradesh' : 7,
-        'Maharashtra' : 6.5,
-        'Manipur' : 5.75,
-        'Meghalaya' : 4.75,
-        'Mizoram' : 5.5,
-        'Nagaland' : 5.5,
-        'Odisha' : 5.5,
-        'Punjab' : 5,
-        'Rajasthan' : 6,
-        'Sikkim' : 4.5,
-        'Tamil Nadu' : 5.25,
-        'Telangana' : 6.25,
-        'Tripura' : 5,
-        'Uttar Pradesh' : 6.5,
-        'Uttarakhand' : 4.75,
-        'West Bengal' : 6,
-        'Andaman and Nicobar Islands' : 7.5,
-        'Chandigarh' : 5,
-        'Dadra and Nagar Haveli' : 4.5,
-        'Daman and Diu' : 4.5,
-        'Lakshadweep' : 5,
-        'Delhi' : 4.5,
-        'Puducherry' : 4.5,
-        'Ladakh' : 6.25,
-        'Jammu and Kashmir' : 6.25
-    };
-
-    try {
-        const currentDate = new Date().toISOString().split('T')[0];
-        const location = await getLocation(token);
-        
-        const response = await axios.get(`http://localhost:5000/get-appliance?date=${currentDate}`, {
-            headers: {
-                Authorization: token,
-                Accept: 'application/json'
-            }
-        });
-
-        const userData = response.data;
-        console.log('User data for today:', userData);
-
-        if (!Array.isArray(userData)) {
-            console.error("Expected an array but received:", userData);
-            return;
-        }
-
-        const inputValuesBody = document.getElementById('input-inputValuesBody');
-        const inputHeader = document.getElementById('input-total-power');
-        inputValuesBody.innerHTML = '';
-
-        let totalPower = 0;
-        let totalCost = 0;
-
-        const todayData = userData.filter(data => {
-            console.log("Data date:", data.date);
-            const itemDate = new Date(data.date).toISOString().split('T')[0];
-            return itemDate === currentDate;
-        });
-
-        todayData.forEach(data => {
-            const { appliance, company, time, frequency, rating } = data;
-            const threshold = thresholds[appliance];
-            const powerConsumption = rating * time;
-
-            const stateCost = costs[location];
-            const indiCost = (stateCost * powerConsumption) / 1000;
-
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = 
-                `<td>${appliance}</td>
-                <td>${powerConsumption}</td>
-                <td>${threshold}</td>
-                <td>${`₹${indiCost.toFixed(2)}`}</td>`;
-
-            inputValuesBody.appendChild(newRow);
-            totalPower += powerConsumption;
-            totalCost += indiCost;
-        });
-        console.log(totalPower);
-
-        inputHeader.textContent = `${totalPower/1000}KW-h`;
-        await savePowerCost(totalPower, totalCost);
-
-    } catch (error) {
-        console.error("Error fetching data:", error);
-    }
-}
-
 async function displayInputCards(selectedAppliance, selectedRating, selectedTime, token){
 
     const thresholds = {
@@ -950,7 +831,7 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
 
     inputEnergy.textContent = `${energyUsed} W-h`;
     inputThreshold.textContent = `${energyThreshold} W-h`;
-    inputCost.textContent = `₹ ${energyCost}`;
+    inputCost.textContent = `₹ ${energyCost.toFixed(2)}`;
 
     return { energyUsed, energyCost };
 }
