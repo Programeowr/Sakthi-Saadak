@@ -1,0 +1,30 @@
+# render.yaml
+
+# Define the services you want to deploy
+services:
+  - type: web  # This indicates that this service is a web service
+    name: my-react-backend  # Name of your service (backend)
+    env: node  # This specifies Node.js as the environment
+    plan: free  # The plan for the service (free for low traffic or development use)
+    buildCommand: "npm install"  # Command to install dependencies
+    startCommand: "npm run dev"  # Command to start your app (assuming 'dev' is for local development)
+    branch: main  # The branch to deploy from
+    regions:
+      - oregon  # The region to deploy your service (use other regions if necessary)
+    envVars:
+      - key: MONGODB_URI  # Environment variable for MongoDB URI
+        value: "mongodb+srv://Programeowr:tarundoom@cluster0.pepjc.mongodb.net/test?retryWrites=true&w=majority"  # Replace with your MongoDB URI or use Render's MongoDB service
+    autoscale: true  # Whether to enable autoscaling
+
+# If you're using a managed database (e.g., MongoDB)
+databases:
+  - name: my-mongo-db  # Name of your MongoDB database
+    type: mongodb  # Type of database
+    plan: free  # Free tier plan for development (Render also offers paid plans)
+    region: oregon  # The region to deploy the database
+
+# Optionally, you can define a cron job if you have scheduled tasks
+# cronJobs:
+#   - name: cleanup-cron-job
+#     schedule: "0 0 * * *"  # This runs every day at midnight
+#     command: "node cronJobs/cleanup.js"
