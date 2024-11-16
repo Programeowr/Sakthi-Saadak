@@ -126,6 +126,30 @@ app.get('/get-appliance', authenticateToken, async (req, res) => {
   }
 });
 
+app.delete('/delete-appliance/:id', authenticateToken, async (req, res) => {
+  try {
+    const applianceId = req.params.id;
+    const appliance = await Appliance.findOne({ 
+      _id: applianceId,
+      userId: req.user.id 
+    });
+
+    if (!appliance) {
+      return res.status(404).json({ message: 'Appliance not found' });
+    }
+
+    await Appliance.findByIdAndDelete(applianceId);
+    res.status(200).json({ message: 'Appliance deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting appliance:', error);
+    res.status(500).json({ 
+      error: 'Failed to delete appliance',
+      details: error.message 
+    });
+  }
+});
+
+
 app.post('/save-power', authenticateToken, async (req, res) => {
   const { power, cost, date } = req.body;
   const currentDate = date;
