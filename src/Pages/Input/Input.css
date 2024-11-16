@@ -21,6 +21,12 @@
     margin-bottom: 2rem;
 }
 
+#input-sel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .app, .Company, .Time, .Freq, .Rating {
     font-size: 20px;
     display: flex;
@@ -28,10 +34,13 @@
     padding: 20px;
     margin: 10px;
     gap: 15px;
+    width:45%;
     color: #a9b1d1;
     background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
+    flex-direction: column;
+  align-items: center;
 }
 
 #Appliance, #Company, #Time, #Freq, #Rating {
@@ -41,6 +50,7 @@
     background-color: rgba(255, 255, 255, 0.08);
     color: #00c2ff;
     font-size: 18px;
+    width: 70%; 
 }
 
 #Appliance:hover, #Company:hover, #Time:hover, #Freq:hover, #Rating:hover {

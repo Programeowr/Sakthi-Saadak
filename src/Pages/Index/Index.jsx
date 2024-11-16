@@ -1,8 +1,8 @@
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import Content from './components/Content';
-import About from './components/About';
-import Footer from './components/Footer';
+import Header from './Components/Header';
+import Navbar from './Components/Navbar';
+import Content from './Components/Content';
+import About from './Components/About';
+import Footer from './Components/Footer';
 import './index.css';
 
 function App() {

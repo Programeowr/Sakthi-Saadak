@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { User, UserPlus, Info, Phone, Menu, X } from 'lucide-react';
+import { User, UserPlus, Info, Menu, X } from 'lucide-react';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +27,9 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#contact" className="nav-link">
-              <Phone className="nav-icon" />
-              <span>Contact</span>
+            <a href="/FAQ" className="nav-link">
+              <Menu className="nav-icon" />
+              <span>FAQs</span>
             </a>
           </li>
         </ul>

@@ -32,7 +32,7 @@ function NavArticle(){
     };
 
     const handleEnergy = () => {
-        navigate("/Input");
+        navigate("/EnergyUsage");
     };
 
     return (

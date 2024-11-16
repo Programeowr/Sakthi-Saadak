@@ -10,6 +10,7 @@ import Reports from './Pages/Reports/Reports.jsx';
 import Renewable from './Pages/Renewable/Renewable.jsx';
 import EducationalResources from './Pages/Educational/EducationalResources.jsx';
 import MaterialComparision from './Pages/comparision/MaterialComparision.jsx';
+import EnergyUsage from './Pages/EnergyUsage/EnergyUsage.jsx';
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
         <Route path="/Comparision" element={<MaterialComparision />} />
         <Route path="/Reports" element={<Reports />} />
         <Route path="/Forgot" element={<ForgotPassword />} />
+        <Route path="/EnergyUsage" element={<EnergyUsage />} />
+
 
       </Routes>
     </Router>
