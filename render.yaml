@@ -3,8 +3,8 @@ services:
     name: my-app
     env: node # Specifies Node.js as the environment
     plan: free # Free plan for low traffic or development use
-    buildCommand: "npm install --production && npm run build" # Command to install dependencies
-    startCommand: "npm run preview" # Command to start your app (adjust if needed)
+    buildCommand: "npm install --production" # Command to install dependencies
+    startCommand: "npm run build" # Command to start your app (adjust if needed)
     branch: main # The branch to deploy from
     envVars:
       - key: MONGODB_URI
