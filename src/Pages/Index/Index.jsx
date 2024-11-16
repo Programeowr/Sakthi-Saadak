@@ -1,5 +1,5 @@
 import Header from './Components/Header';
-import Navbar from './Components/Navbar';
+import NavBar from './Components/NavBar';
 import Content from './Components/Content';
 import About from './Components/About';
 import Footer from './Components/Footer';
@@ -11,7 +11,7 @@ function App() {
         <div className = "index-body">
       <Header />
       
-      <Navbar />
+      <NavBar />
       <main>
         <Content />
         <About />

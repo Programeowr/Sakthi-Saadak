@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { User, UserPlus, Info, Menu, X } from 'lucide-react';
 
-function Navbar() {
+function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -38,4 +38,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavBar;
