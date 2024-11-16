@@ -19,10 +19,7 @@ const handleBack = () => {
       </div>
 
         <div className="ss-home-nav-content">
-          <button onClick={handleBack} className="backButton">
-            <ArrowLeft className="backIcon" style={{ color: 'white' }} />
-            <span style={{ color: 'white' }}>Back</span>
-          </button>
+        
         <h2 style={{ fontSize: '35px', fontFamily: "'Yanone Kaffeesatz', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", fontWeight: 400, color: '#f5f5dc' }}>
   SAKTHI SAADHAK
 </h2>

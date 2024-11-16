@@ -110,6 +110,7 @@
   /* Navbar */
   .navbar {
     background: #004037 ;
+    background: linear-gradient(135deg, #00332e, #006b58);
     padding: 1rem 1rem;
     position: sticky;
     top: 0;
@@ -152,6 +153,11 @@
   /* Content Section */
   .content-section {
     padding: 1rem 5rem;
+    background: linear-gradient(135deg, #004037, #006e58);
+background: linear-gradient(135deg, #00332e, #006b58);
+
+  
+
   }
   
   .content-grid {

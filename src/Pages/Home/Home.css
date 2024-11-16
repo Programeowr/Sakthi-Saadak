@@ -95,6 +95,8 @@
   .ss-home-hero {
     padding: 8rem 2rem 4rem;
     background-color: #004239;
+    background: linear-gradient(135deg, #004239, #015148, #638a87);
+
     text-align: center;
 
   }

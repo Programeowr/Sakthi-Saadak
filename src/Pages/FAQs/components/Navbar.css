@@ -1,0 +1,41 @@
+.ss-home-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #011c18;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .ss-home-nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .ss-home-logo {
+    font-size: 1.5rem;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .ss-home-nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .ss-home-nav-item {
+    padding: 0.5rem 1rem;
+    color: beige;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .ss-home-nav-item:hover {
+    color: white;
+  }
