@@ -4,7 +4,7 @@ import { Leaf, BarChart, Calculator, FileText, BookOpen, Sun, Activity } from 'l
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from "lucide-react";
 
-function App() {
+function Home() {
     const navigate = useNavigate();
 
 const handleBack = () => {
@@ -14,9 +14,6 @@ const handleBack = () => {
   return (
     <div className="ss-home-body">
       <nav className="ss-home-navbar">
-      <div id="input-body">
-        
-      </div>
 
         <div className="ss-home-nav-content">
         
@@ -110,4 +107,4 @@ const handleBack = () => {
   );
 }
 
-export default App;
+export default Home

@@ -189,7 +189,7 @@ function EnergyUsage() {
           </div>
           <div className="total-consumption">
             <DollarSign className="zap-icon" />
-            <span>Total Cost: ₹ {totalCost} </span>
+            <span>Total Cost: ₹ {totalCost.toFixed(2)} </span>
           </div>
         </div>
 

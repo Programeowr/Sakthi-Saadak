@@ -8,7 +8,9 @@ function Form() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [state, setState] = useState('');
+    const [location, setLocation] = useState('');
+
+    const navigate = useNavigate();
 
     const indianStates = [
         "Andhra Pradesh",
@@ -43,8 +45,8 @@ function Form() {
         "Chandigarh",
         "Dadra and Nagar Haveli and Daman and Diu",
         "Lakshadweep",
-        "Delhi (National Capital Territory)",
-        "Puducherry (Pondicherry)",
+        "Delhi",
+        "Puducherry",
         "Ladakh",
         "Jammu and Kashmir"
     ];
@@ -65,8 +67,8 @@ function Form() {
         setConfirmPassword(e.target.value)
     }
 
-    function handleState(e) {
-        setState(e.target.value)
+    function handleLocation(e) {
+        setLocation(e.target.value)
     }
 
     const clickSignup = async (e) => {
@@ -77,13 +79,16 @@ function Form() {
             return;
         }
 
-        const userData = { username, email, password, state };
+        const userData = { username, email, password, location };
 
         try {
             const response = await axios.post('http://localhost:5000/signup', userData);
-            const { token } = response.data;
+            console.log(response);
+
+            const token = response.data.token;
+            console.log(token);
             localStorage.setItem('token', token);
-            Navigate('/Home')
+            navigate('/Home');
         } catch (error) {
             alert("Error during signup. Try again");
             console.error('Error during signup:', error.response.data);
@@ -118,14 +123,14 @@ function Form() {
                         id="state" 
                         name="state" 
                         className="form-select"
-                        value={state}
-                        onChange={handleState}
+                        value={location}
+                        onChange={handleLocation}
                         required
                     >
                         <option value="">Select your location</option>
-                        {indianStates.map((state, index) => (
-                            <option key={index} value={state}>
-                                {state}
+                        {indianStates.map((location, index) => (
+                            <option key={index} value={location}>
+                                {location}
                             </option>
                         ))}
                     </select>
@@ -139,4 +144,4 @@ function Form() {
     );
 }
 
-export default Form;
+export default Form

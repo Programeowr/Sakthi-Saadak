@@ -803,7 +803,7 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
         'West Bengal' : 6,
         'Andaman and Nicobar Islands' : 7.5,
         'Chandigarh' : 5,
-        'Dadra and Nagar Haveli' : 4.5,
+        'Dadra and Nagar Haveli and Daman and Diu' : 4.5,
         'Lakshadweep' : 5,
         'Delhi' : 4.5,
         'Puducherry' : 4.5,

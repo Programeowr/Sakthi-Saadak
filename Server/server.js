@@ -40,6 +40,12 @@ app.post('/signup', async (req, res) => {
   const { username, email, password, location } = req.body;
 
   try {
+
+      const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+      if (existingUser) {
+        return res.status(400).json({ error: 'Username or email already exists' });
+      }
+
       const hashedPassword = await bcrypt.hash(password, 10);
         
       const user = new User({

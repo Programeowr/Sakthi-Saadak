@@ -1,3 +1,4 @@
+import { Footprints } from "lucide-react";
 import Emmisions from "../JSB/Emmisions";
 
 function Hero(){
@@ -10,7 +11,7 @@ function Hero(){
           
         </div>
         <div className="hero-image">
-          <img src="eco-earth.svg" alt="Sustainable Earth" />
+          <Footprints size={300} className="edu-floating-icon" />
         </div>
       </section>
     );
