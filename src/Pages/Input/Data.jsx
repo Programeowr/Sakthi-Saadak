@@ -703,7 +703,7 @@ function getSuggestions(appliance, company, time, freq, rating){
 
 async function getLocation(token) {
     try {
-        const response = await axios.get('http://localhost:5000/get-location', {
+        const response = await axios.get('https://sakthi-saadak-backend.onrender.com/get-location', {
             headers: {
                 Authorization: token,
                 Accept: 'application/json'
@@ -732,7 +732,7 @@ async function savePowerCost(energyUsed, energyCost) {
         const currentDate = new Date().toISOString().split('T')[0];
         
         const response = await axios.post(
-            'http://localhost:5000/save-power', 
+            'https://sakthi-saadak-backend.onrender.com/save-power', 
             { 
                 power: energyUsed,
                 cost: energyCost,
@@ -858,7 +858,7 @@ async function saveApplianceData(sAppliance, sCompany, sTime, sFreq, sRating) {
         const token = localStorage.getItem('token');
         const currentDate = new Date().toISOString().split('T')[0]; 
         
-        const response = await axios.post('http://localhost:5000/save-appliance', {
+        const response = await axios.post('https://sakthi-saadak-backend.onrender.com/save-appliance', {
             userId: '',
             appliance: sAppliance,
             company: sCompany,

@@ -5,9 +5,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../Models/User.js';
-import Appliance from '../Models/Appliance.js';
-import Power from '../Models/Power.js';
+import User from './Models/User.js';
+import Appliance from './Models/Appliance.js';
+import Power from './Models/Power.js';
 import { startOfDay, endOfDay } from 'date-fns';
 
 

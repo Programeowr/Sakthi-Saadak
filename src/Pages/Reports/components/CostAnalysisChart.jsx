@@ -37,10 +37,10 @@ function CostAnalysisChart() {
 
       // Fetch user's cost data and average cost data
       const [userResponse, averageResponse] = await Promise.all([
-        axios.get('http://localhost:5000/get-power', {
+        axios.get('https://sakthi-saadak-backend.onrender.com/get-power', {
           headers: { 'Authorization': token }
         }),
-        axios.get('http://localhost:5000/get-average-power', {
+        axios.get('https://sakthi-saadak-backend.onrender.com/get-average-power', {
           headers: { 'Authorization': token }
         })
       ]);

@@ -41,7 +41,7 @@ function ComparisonStats() {
       const currentWeekStart = startOfWeek(today);
       const previousWeekStart = subDays(currentWeekStart, 7);
 
-      const response = await axios.get('http://localhost:5000/get-power', {
+      const response = await axios.get('https://sakthi-saadak-backend.onrender.com/get-power', {
         headers: {
           'Authorization': token
         }

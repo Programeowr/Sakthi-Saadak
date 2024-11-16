@@ -39,7 +39,7 @@ function EnergyUsageChart() {
         return;
       }
 
-      const response = await axios.get('http://localhost:5000/get-power', {
+      const response = await axios.get('https://sakthi-saadak-backend.onrender.com/get-power', {
         headers: {
           'Authorization': token
         }

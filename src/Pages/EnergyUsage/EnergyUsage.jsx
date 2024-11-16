@@ -28,7 +28,7 @@ function EnergyUsage() {
       const token = localStorage.getItem('token');
       const currentDate = new Date().toISOString().split('T')[0];
       
-      const response = await axios.get(`http://localhost:5000/get-appliance?date=${currentDate}`, {
+      const response = await axios.get(`https://sakthi-saadak-backend.onrender.com/get-appliance?date=${currentDate}`, {
         headers: {
           Authorization: token,
           Accept: 'application/json'
@@ -74,7 +74,7 @@ function EnergyUsage() {
         'Jammu and Kashmir' : 6.25
     };
 
-      const locationResponse = await axios.get('http://localhost:5000/get-location', {
+      const locationResponse = await axios.get('https://sakthi-saadak-backend.onrender.com/get-location', {
         headers: {
           Authorization: token,
           Accept: 'application/json'
@@ -134,7 +134,7 @@ function EnergyUsage() {
       }
 
       const token = localStorage.getItem('token');
-      const response = await axios.delete(`http://localhost:5000/delete-appliance/${id}`, {
+      const response = await axios.delete(`https://sakthi-saadak-backend.onrender.com/delete-appliance/${id}`, {
         headers: {
           Authorization: token
         }

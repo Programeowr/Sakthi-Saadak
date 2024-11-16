@@ -82,7 +82,7 @@ function Form() {
         const userData = { username, email, password, location };
 
         try {
-            const response = await axios.post('http://localhost:5000/signup', userData);
+            const response = await axios.post('https://sakthi-saadak-backend.onrender.com/signup', userData);
             console.log(response);
 
             const token = response.data.token;
