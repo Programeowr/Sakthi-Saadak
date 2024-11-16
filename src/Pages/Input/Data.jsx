@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { threshold } from 'three/webgpu';
 
 function Data(){
     const appSelect = document.getElementById('Appliance');
@@ -48,8 +49,9 @@ function Data(){
         'Computer': ['Less than 1 HR', '1-2 HRS', '2-3 HRS', '3-4 HRS', '4-5 HRS', '5-6 HRS', '6-8 HRS', '8-10 HRS', 'More than 10 HRS'],
     }
 
+    let selectedAppliance, selectedCompany, selectedTime, selectedRating, selectedFreq;
 
-    let selectedAppliance = appSelect.value;
+    selectedAppliance = appSelect.value;
     const companies = applianceCompanies[selectedAppliance];
     const time = applianceTime[selectedAppliance];
 
@@ -73,9 +75,7 @@ function Data(){
         timeSelect.disabled = true;
     }
 
-    let selectedCompany, selectedTime, selectedRating, selectedFreq;
-
-    compSelect.onchange = function() {
+        compSelect.onchange = function() {
         selectedCompany = compSelect.value;
         if (selectedAppliance && selectedCompany) {
             rateSelect.disabled = false;
@@ -106,59 +106,55 @@ function Data(){
         const freqString = freqSelect.value;
         selectedFreq = convertFreqToFloat(freqString);
     }
-
-    async function saveApplianceData() {
-        try {
-            const token = localStorage.getItem('token');
-            const currentDate = new Date().toISOString().split('T')[0]; 
-            
-            const response = await axios.post('http://localhost:5000/save-appliance', {
-                userId: '',
-                appliance: selectedAppliance,
-                company: selectedCompany,
-                time: selectedTime,
-                frequency: selectedFreq,
-                rating: selectedRating,
-                date: currentDate 
-            },  
-            {
-                headers: {
-                    Authorization: token 
-                },
-            });
     
-            console.log('Data saved:', response.data);
-            await displayInputValues(token);
-        } catch (error) {
-            console.error('Error saving data:', error.response ? error.response.data : error.message);
-        }
-    }
+    let energyUsed, energyCost;
+    let sAppliance, sCompany, sTime, sFreq, sRating;
 
     const handleButtonClick = async () => {
         if (!validateForm()) {
             return;
         }
 
-        getSuggestions(selectedAppliance, selectedCompany, selectedTime, selectedFreq, selectedRating);
-        await saveApplianceData();
+        const token = localStorage.getItem('token');
+        ({ energyUsed, energyCost } = await displayInputCards(selectedAppliance, selectedRating, selectedTime, token));
+
+        sAppliance = selectedAppliance;
+        sCompany = selectedCompany;
+        sTime = selectedTime;
+        sFreq = selectedFreq;
+        sTime = selectedTime;
+        sRating = selectedRating;
 
         selectedAppliance = '';
         selectedCompany = '';
         selectedTime = '';
         selectedFreq = '';
         selectedRating = '';
-
-        const target = document.getElementById('input-output-section');
-
-        if (target) {
-            console.log('Output element found, scrolling...');
-            target.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            console.error('Output element not found in the DOM');
-        }
         
+        const target = document.getElementById('input-energy-used');        
         target.scrollIntoView({ behavior: 'smooth' });
+
+        return { energyUsed, energyCost };
     };
+
+    const handleAddButtonClick = async () => {
+        if(!validateForm()){
+            return;
+        }
+
+        console.log(sAppliance, sCompany, sTime, sFreq, sTime);
+        await saveApplianceData(sAppliance, sCompany, sTime, sFreq, sRating);
+        await savePowerCost(energyUsed, energyCost);
+    };
+
+    const addButton = document.getElementById('add-appliance-button');
+    if (addButton) {
+        addButton.removeEventListener('click', handleAddButtonClick);
+
+        addButton.addEventListener('click', handleAddButtonClick);
+    } else {
+        console.error('Element not found');
+    }
 
     const button = document.getElementById('Input');
     if (button) {
@@ -168,7 +164,8 @@ function Data(){
     } else {
         console.error('Element not found');
     }
-} 
+
+}
 
 function validateForm() {
     const appSelect = document.getElementById('Appliance');
@@ -726,7 +723,7 @@ async function getLocation(token) {
 }
 
 
-async function savePowerCost(totalPower, totalCost) {
+async function savePowerCost(energyUsed, energyCost) {
     try {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -739,8 +736,8 @@ async function savePowerCost(totalPower, totalCost) {
         const response = await axios.post(
             'http://localhost:5000/save-power', 
             { 
-                power: totalPower,
-                cost: totalCost,
+                power: energyUsed,
+                cost: energyCost,
                 date: currentDate
             },  
             {
@@ -872,6 +869,116 @@ async function displayInputValues(token) {
 
     } catch (error) {
         console.error("Error fetching data:", error);
+    }
+}
+
+async function displayInputCards(selectedAppliance, selectedRating, selectedTime, token){
+
+    const thresholds = {
+        'Refrigerator': 150 * 24,
+        'Microwave': 1000 * 0.5,
+        'Washing Machine': 700 * 0.5,
+        'Electric Stove': 1500 * 1,
+        'Water Heater': 2000 * 0.5,
+        'Dishwasher': 1500 * 1,
+        'Kettle': 1500 * 0.5,
+        'Fan': 70 * 8,
+        'Television': 120 * 4,
+        'Vacuum': 1000 * 0.5,
+        'Blender': 500 * 0.2,
+        'Iron': 1500 * 0.5,
+        'Light': 20 * 8,
+        'Computer': 250 * 4
+    };
+
+    const costs = {
+        'Andhra Pradesh' : 6,
+        'Arunachal Pradesh' : 5.5,
+        'Assam' : 5.75,
+        'Bihar' : 6.75,
+        'Chhattisgarh' : 5,
+        'Goa' : 3.75,
+        'Gujarat' : 5.25,
+        'Haryana' : 6.25,
+        'Himachal Pradesh' : 4.25,
+        'Jharkhand' : 6.25,
+        'Karnataka' : 5.5,
+        'Kerala' : 4.25,
+        'Madhya Pradesh' : 7,
+        'Maharashtra' : 6.5,
+        'Manipur' : 5.75,
+        'Meghalaya' : 4.75,
+        'Mizoram' : 5.5,
+        'Nagaland' : 5.5,
+        'Odisha' : 5.5,
+        'Punjab' : 5,
+        'Rajasthan' : 6,
+        'Sikkim' : 4.5,
+        'Tamil Nadu' : 5.25,
+        'Telangana' : 6.25,
+        'Tripura' : 5,
+        'Uttar Pradesh' : 6.5,
+        'Uttarakhand' : 4.75,
+        'West Bengal' : 6,
+        'Andaman and Nicobar Islands' : 7.5,
+        'Chandigarh' : 5,
+        'Dadra and Nagar Haveli' : 4.5,
+        'Daman and Diu' : 4.5,
+        'Lakshadweep' : 5,
+        'Delhi' : 4.5,
+        'Puducherry' : 4.5,
+        'Ladakh' : 6.25,
+        'Jammu and Kashmir' : 6.25
+    };
+
+    const location = await getLocation(token);
+    console.log(location);
+
+    let energyUsed = (selectedRating * selectedTime) / 1000;
+    let energyCost =  energyUsed * (costs[location]);
+    let energyThreshold = thresholds[selectedAppliance] / 1000;
+
+    console.log(energyUsed, energyCost, energyThreshold);
+
+    const inputEnergy = document.getElementById('input-energy-used');
+    const inputThreshold = document.getElementById('input-threshold-energy');
+    const inputCost = document.getElementById('input-cost-value');
+
+    inputEnergy.innerHTML = '';
+    inputThreshold.innerHTML = '';
+    inputCost.innerHTML='';
+
+    inputEnergy.textContent = `${energyUsed} KW-h`;
+    inputThreshold.textContent = `${energyThreshold} KW-h`;
+    inputCost.textContent = `₹ ${energyCost}`;
+
+    return { energyUsed, energyCost };
+}
+
+async function saveApplianceData(sAppliance, sCompany, sTime, sFreq, sRating) {
+    try {
+        const token = localStorage.getItem('token');
+        const currentDate = new Date().toISOString().split('T')[0]; 
+        
+        const response = await axios.post('http://localhost:5000/save-appliance', {
+            userId: '',
+            appliance: sAppliance,
+            company: sCompany,
+            time: sTime,
+            frequency: sFreq,
+            rating: sRating,
+            date: currentDate 
+        },  
+
+        {
+            headers: {
+                Authorization: token 
+            },
+        });
+
+        console.log('Data saved:', response.data);
+    } catch (error) {
+        console.error('Error saving data:', error.response ? error.response.data : error.message);
     }
 }
 

@@ -137,8 +137,8 @@ app.post('/save-power', authenticateToken, async (req, res) => {
     });
 
     if (existingRecord) {
-      existingRecord.power = power;
-      existingRecord.cost = cost;
+      existingRecord.power += power;
+      existingRecord.cost += cost;
 
       await existingRecord.save();
       res.status(200).json({ message: 'Power updated successfully' });

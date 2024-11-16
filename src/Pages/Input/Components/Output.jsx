@@ -11,19 +11,26 @@ function Output(){
                 </div>
             
                 <h2>APPLIANCE SPECIFIC DETAILS</h2>
-            <table className="input-appliance-table">
-                <thead>
-                    <tr>
-                        <th>Appliance Name</th>
-                        <th>Average Power Consumption (W-h)</th>
-                        <th>Threshold</th>
-                        <th>Usage Pattern</th>
-                    </tr>
-                </thead>
-                <tbody id="input-inputValuesBody">
-                
-                </tbody>
-            </table>
+
+                <div className="input-stats-container">
+                <div className="input-stat-card">
+                    <h3>Energy Used</h3>
+                    <p id="input-energy-used">0 kWh</p>
+                    <span className="input-stat-description">Total energy consumed by your appliances</span>
+                </div>
+                <div className="input-stat-card">
+                    <h3>Threshold Energy</h3>
+                    <p id="input-threshold-energy">0 kWh</p>
+                    <span className="input-stat-description">Average energy consumption benchmark</span>
+                </div>
+                <div className="input-stat-card">
+                    <h3>Cost</h3>
+                    <p id="input-cost-value">$0</p>
+                    <span className="input-stat-description">Estimated cost based on current usage</span>
+                </div>
+            </div>
+
+            <button className="input-add-appliance-btn" id="add-appliance-button">Add Appliance</button>
             
             <div className="input-suggestions">
                     <h3 id="input-output-h3">Suggestions:</h3>
