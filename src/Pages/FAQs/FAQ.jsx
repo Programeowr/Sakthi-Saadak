@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { HelpCircle } from 'lucide-react';
-import Navbar from './components/Navbar';
-import SearchBar from './components/SearchBar';
-import CategoryFilter from './components/CategoryFilter';
-import FAQItem from './components/FAQItem';
+import Navbar from './components/Navbar.jsx';
+import SearchBar from './components/SearchBar.jsx';
+import CategoryFilter from './components/CategoryFilter.jsx';
+import FAQItem from './components/FAQItem.jsx';
 import './FAQ.css';
 
 const faqData = [
