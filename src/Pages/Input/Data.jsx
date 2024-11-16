@@ -712,8 +712,6 @@ async function getLocation(token) {
 
         const location = response.data.location;
 
-        console.log("User's location:", location);
-
         return location;
 
     } catch (error) {
@@ -812,13 +810,10 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
     };
 
     const location = await getLocation(token);
-    console.log(location);
 
     let energyUsed = (selectedRating * selectedTime);
     let energyCost =  energyUsed * (costs[location]) / 1000;
     let energyThreshold = thresholds[selectedAppliance];
-
-    console.log(energyUsed, energyCost, energyThreshold);
 
     const inputEnergy = document.getElementById('input-energy-used');
     const inputThreshold = document.getElementById('input-threshold-energy');
@@ -846,6 +841,7 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
         });
 
         const efficiency = ((energyUsed - energyThreshold) / energyThreshold) * 100;
+        console.log(efficiency);
         thresholdText.textContent = efficiency > 0 
             ? `Your energy usage is ${Math.abs(efficiency.toFixed(1))}% above average` 
             : `Your energy usage is ${Math.abs(efficiency.toFixed(1))}% below average`;
