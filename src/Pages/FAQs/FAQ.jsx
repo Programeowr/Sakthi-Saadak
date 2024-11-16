@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import SearchBar from './components/SearchBar';
 import CategoryFilter from './components/CategoryFilter';
 import FAQItem from './components/FAQItem';
-import './App.css';
+import './FAQ.css';
 
 const faqData = [
   {

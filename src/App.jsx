@@ -11,6 +11,8 @@ import Renewable from './Pages/Renewable/Renewable.jsx';
 import EducationalResources from './Pages/Educational/EducationalResources.jsx';
 import MaterialComparision from './Pages/comparision/MaterialComparision.jsx';
 import EnergyUsage from './Pages/EnergyUsage/EnergyUsage.jsx';
+import FAQ from './Pages/FAQs/FAQ.jsx';
+
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
         <Route path="/Reports" element={<Reports />} />
         <Route path="/Forgot" element={<ForgotPassword />} />
         <Route path="/EnergyUsage" element={<EnergyUsage />} />
+        <Route path="/FAQ" element={<FAQ/>} />
+
 
 
       </Routes>

@@ -35,7 +35,7 @@ const handleBack = () => {
             <div className="ss-home-nav-item">
               View
               <div className="ss-home-dropdown">
-                <a href="" className="ss-home-dropdown-item">Material Comparison</a>
+                <a href="/Comparsion" className="ss-home-dropdown-item">Material Comparison</a>
                 <a href="/Reports" className="ss-home-dropdown-item">Reports & Graphs</a>
                 <a href="/Educational" className="ss-home-dropdown-item">Educational Articles</a>
               </div>

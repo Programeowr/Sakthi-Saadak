@@ -36,17 +36,39 @@
     color: black;
 }
 
-input {
+input, .form-select {
     width: 100%;
     padding: 15px;
     margin: 5px 0 20px 0;
     border-radius: 4px;
     border: 1px solid #ddd;
     box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23004037' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    padding-right: 45px;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #004037;
+    box-shadow: 0 0 0 2px rgba(0, 64, 55, 0.1);
+}
+
+.form-select option {
+    padding: 10px;
+    font-size: 16px;
 }
 
 .signup-button {
-    background-color:  #004037;
+    background-color: #004037;
     color: white;
     padding: 15px 20px;
     border: none;
@@ -54,10 +76,14 @@ input {
     width: 100%;
     opacity: 0.9;
     border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .signup-button:hover {
     opacity: 1;
+    background-color: #00503f;
 }
 
 .info {
@@ -68,8 +94,34 @@ input {
 a {
     color: #004037;
     text-decoration: none;
+    font-weight: 500;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Error state styles */
+input:invalid:not(:placeholder-shown),
+.form-select:invalid:not(:placeholder-shown) {
+}
+
+input:invalid:not(:placeholder-shown):focus,
+.form-select:invalid:not(:placeholder-shown):focus {
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .signup-container {
+        width: 100%;
+        padding: 30px 20px;
+    }
 }

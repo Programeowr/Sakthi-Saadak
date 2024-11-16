@@ -1,53 +1,89 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import '../Signup.css';
 
-function Form(){
-
+function Form() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [postalCode, setPostalCode] = useState('');
+    const [state, setState] = useState('');
 
-    function handleUsername(e){
+    const indianStates = [
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chhattisgarh",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Himachal Pradesh",
+        "Jharkhand",
+        "Karnataka",
+        "Kerala",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Odisha",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Tamil Nadu",
+        "Telangana",
+        "Tripura",
+        "Uttar Pradesh",
+        "Uttarakhand",
+        "West Bengal",
+        "Andaman and Nicobar Islands",
+        "Chandigarh",
+        "Dadra and Nagar Haveli and Daman and Diu",
+        "Lakshadweep",
+        "Delhi (National Capital Territory)",
+        "Puducherry (Pondicherry)",
+        "Ladakh",
+        "Jammu and Kashmir"
+    ];
+    
+    function handleUsername(e) {
         setUsername(e.target.value)
     }
 
-    function handleEmail(e){
+    function handleEmail(e) {
         setEmail(e.target.value)
     }
 
-    function handlePassword(e){
+    function handlePassword(e) {
         setPassword(e.target.value)
     }
 
-    function handleConfirmPassword(e){
+    function handleConfirmPassword(e) {
         setConfirmPassword(e.target.value)
     }
 
-    function handlePostalCode(e){
-        setPostalCode(e.target.value)
+    function handleState(e) {
+        setState(e.target.value)
     }
 
     const clickSignup = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         if (password !== confirmPassword) {
             alert("Passwords do not match");
             return;
         }
 
-        const userData = { username, email, password, postalCode };
+        const userData = { username, email, password, state };
 
         try {
             const response = await axios.post('http://localhost:5000/signup', userData);
-
-            const { token } = response.data; 
+            const { token } = response.data;
             localStorage.setItem('token', token);
-            
             Navigate('/Home')
-
         } catch (error) {
             alert("Error during signup. Try again");
             console.error('Error during signup:', error.response.data);
@@ -77,8 +113,22 @@ function Form(){
                     <input type="password" id="confirm-password" name="confirm-password" onChange={handleConfirmPassword} required />
                 </div>
                 <div>
-                    <label htmlFor="postal-code">Postal Code:</label>
-                    <input type="text" id="postal-code" name="postal-code" onChange={handlePostalCode} required />
+                    <label htmlFor="state">Location:</label>
+                    <select 
+                        id="state" 
+                        name="state" 
+                        className="form-select"
+                        value={state}
+                        onChange={handleState}
+                        required
+                    >
+                        <option value="">Select your location</option>
+                        {indianStates.map((state, index) => (
+                            <option key={index} value={state}>
+                                {state}
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 <button type="submit" className="signup-button">Signup</button>
             </form>
