@@ -935,7 +935,7 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
     console.log(location);
 
     let energyUsed = (selectedRating * selectedTime);
-    let energyCost =  energyUsed * (costs[location]);
+    let energyCost =  energyUsed * (costs[location]) / 1000;
     let energyThreshold = thresholds[selectedAppliance];
 
     console.log(energyUsed, energyCost, energyThreshold);
