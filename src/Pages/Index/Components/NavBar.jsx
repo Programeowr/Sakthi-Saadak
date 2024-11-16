@@ -9,13 +9,13 @@ function NavBar() {
       <div className="nav-container">    
         <ul className={`nav-links ${isOpen ? 'nav-active' : ''}`}>
           <li>
-            <a href="/login" className="nav-link">
+            <a href="/Login" className="nav-link">
               <User className="nav-icon" />
               <span>Log In</span>
             </a>
           </li>
           <li>
-            <a href="/signup" className="nav-link">
+            <a href="/Signup" className="nav-link">
               <UserPlus className="nav-icon" />
               <span>Sign Up</span>
             </a>
@@ -38,4 +38,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavBar

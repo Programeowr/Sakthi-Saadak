@@ -78,7 +78,7 @@ const handleBack = () => {
 
       <div className="ss-home-features-grid">
         
-        <div className="ss-home-feature-card" onClick={() => window.location.href = '/Input'}>
+        <div className="ss-home-feature-card" onClick={() => window.location.href = '/EnergyUsage'}>
           <Activity className="ss-home-feature-icon" />
           <h3 className="ss-home-feature-title">Energy Usage</h3>
           <p>Track and monitor your energy consumption patterns</p>

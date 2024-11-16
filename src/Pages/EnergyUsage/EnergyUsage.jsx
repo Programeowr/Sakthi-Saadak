@@ -100,4 +100,4 @@ function EnergyUsage() {
   );
 }
 
-export default EnergyUsage;
+export default EnergyUsage
