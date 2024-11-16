@@ -3,7 +3,7 @@ import axios from 'axios'
 async function Emmisions(token) {
 
     try {
-        const response = await axios.get('http://localhost:5000/get-appliance', {
+        const response = await axios.get('https://sakthi-saadak-backend.onrender.com/get-appliance', {
             headers: {
                 Authorization: token,
                 Accept : 'application/json'
