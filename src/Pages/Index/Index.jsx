@@ -3,7 +3,7 @@ import NavBar from './Components/NavBar';
 import Content from './Components/Content';
 import About from './Components/About';
 import Footer from './Components/Footer';
-import './index.css';
+import './Index.css';
 
 function App() {
   return (
