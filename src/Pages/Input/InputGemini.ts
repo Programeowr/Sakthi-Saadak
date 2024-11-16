@@ -8,15 +8,16 @@ export async function getEnergyRecommendations(energyUsed: number, threshold: nu
   
   const prompt = `Given that a ${appliance} is using ${energyUsed} W-h of energy, which is ${efficiency.toFixed(1)}% ${status} the average threshold of ${threshold} W-h:
   1. Provide 3 specific, brief, one-line, actionable recommendations to optimize energy usage
-  2. Focus on practical tips for this specific appliance
-  3. Include potential cost savings where applicable
-  4. Don't Bold the Text
+  2. The suggestions should be based on India
+  3. Focus on practical tips for this specific appliance
+  4. Include potential cost savings where applicable
+  5. Don't Bold the Text
   Format as a bullet list without any additional text.`;
   
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
     const result = await model.generateContent(prompt);
-    const response = await result.response;
+    const response = result.response;
     return response.text().split('\n').filter(line => line.trim());
   } catch (error) {
     console.error('Error getting recommendations:', error);
