@@ -11,7 +11,7 @@ function Hero(){
           
         </div>
         <div className="hero-image">
-          <Footprints size={300} className="edu-floating-icon" />
+          <img src="src\Pages\Co2\Components\eco-earth.svg" alt="Sustainable Earth" />
         </div>
       </section>
     );

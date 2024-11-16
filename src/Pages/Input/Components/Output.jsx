@@ -30,7 +30,7 @@ function Output(){
                 </div>
             </div>
 
-            <button className="input-add-appliance-btn" id="add-appliance-button">Add Appliance</button>
+            <button className="input-add-appliance-btn" id="add-appliance-button">Add Appliance to Reports</button>
             
             <div className="input-suggestions">
                     <h3 id="input-output-h3">Suggestions:</h3>

@@ -19,7 +19,7 @@ function EnergyUsage() {
     threshold: '',
     cost: ''
   });
-
+  
   const formRef = useRef(null);
 
   // Function to fetch appliances from the database
@@ -161,12 +161,15 @@ function EnergyUsage() {
 
   return (
     <main className="energy-main">
-      <button onClick={handleBack} className="back-btn">
-          <ArrowLeft className="icon" />
-          <span>Back</span>
+       
+       <button onClick={handleBack} className="back-btn">
+        <ArrowLeft className="icon" />
+        <span>Back</span>
       </button>
+      
       <section className="energy-hero">
         <div className="energy-hero-content">
+       
           <h1>Energy Usage Monitor</h1>
           <p>Track and optimize your household energy consumption with our interactive dashboard.</p>
         </div>

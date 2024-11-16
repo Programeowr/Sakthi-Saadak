@@ -5,11 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from "lucide-react";
 
 function Home() {
-    const navigate = useNavigate();
-
-const handleBack = () => {
-  navigate('/');  // This will navigate back to the previous page
-};
 
   return (
     <div className="ss-home-body">

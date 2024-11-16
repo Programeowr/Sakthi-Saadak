@@ -1,15 +1,18 @@
+/* Base Styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-#input-body {
+  }
+  
+  #input-body {
     background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-}
-
-#input-energy-h2 {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  
+  #input-energy-h2 {
     padding: 30px;
     text-align: center;
     font-size: 45px;
@@ -19,277 +22,287 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 2rem;
-}
-
-#input-sel {
+  }
+  
+  /* Selection Container */
+  #input-sel {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.app, .Company, .Time, .Freq, .Rating {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Selection Boxes */
+  .app, .Company, .Time, .Freq, .Rating {
     font-size: 20px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    margin: 10px;
-    gap: 15px;
-    width:45%;
+    padding: 25px;
+    width: calc(33.333% - 2rem);
+    min-width: 280px;
     color: #a9b1d1;
     background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
-    flex-direction: column;
-  align-items: center;
-}
-
-#Appliance, #Company, #Time, #Freq, #Rating {
-    padding: 10px;
+    border: 1px solid rgba(0, 194, 255, 0.1);
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .app:hover, .Company:hover, .Time:hover, .Freq:hover, .Rating:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 194, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Select Inputs */
+  #Appliance, #Company, #Time, #Freq, #Rating {
+    padding: 12px 20px;
     border-radius: 10px;
     border: 1px solid #004037;
     background-color: rgba(255, 255, 255, 0.08);
     color: #00c2ff;
     font-size: 18px;
-    width: 70%; 
-}
-
-#Appliance:hover, #Company:hover, #Time:hover, #Freq:hover, #Rating:hover {
-    background-color: #00c3ff62;
+    width: 100%;
+    transition: all 0.3s ease;
     cursor: pointer;
-}
-
-
-
-.app:hover .Menubox {
-    display: block;
-    position: relative; 
-    top: 100%; 
-}
-
-#Input {
-    font-family: 'Roboto', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    outline: none;
+  }
+  
+  #Appliance:hover, #Company:hover, #Time:hover, #Freq:hover, #Rating:hover {
+    background-color: rgba(0, 194, 255, 0.2);
+    border-color: #00c2ff;
+  }
+  
+  #Appliance:focus, #Company:focus, #Time:focus, #Freq:focus, #Rating:focus {
+    border-color: #00c2ff;
+    box-shadow: 0 0 0 2px rgba(0, 194, 255, 0.2);
+  }
+  
+  /* Calculate Button */
+  #Input {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     text-decoration: none;
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 20px;
     border: none;
     box-shadow: 2px 2px 5px black;
-    margin: 30px auto 40px auto; 
-    background: linear-gradient(90deg, #00c2ff 0%, #01e8f7 100%);
-    display: block;  
     margin: 30px auto 40px auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#Input:hover {
-    background: linear-gradient(90deg, #00c3ff71 0%, #01e7f771 100%);
-    cursor: pointer;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-
-.container {
-    flex-wrap: wrap;
-}
-
-.box {
-    background-color: #fffdf9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    width: 30%;
-    margin: 10px;
-    text-align: center;
-}
-
-#input-overall_consumption, #appliance_consumption {
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 10px;
-    border: 1px solid #004037;
-    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
-    color: #00c2ff;
-}
-
-#input-overall_consumption:hover, #appliance_consumption:hover {
-    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
-    cursor: pointer;
-}
-
-#input-output-section {
-    display: block;
-    margin: 20px;
-    padding: 20px;
-    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#input-output-section h2 {
-    text-align: center;
-    color: white;
-}
-
-#input-output-section div {
-    margin-bottom: 20px;
-}
-#input-total-consumption, .input-appliance-details, .input-suggestions {
-    padding: 15px;
-    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-#input-total-power {
-    font-size: 24px;
-    font-weight: bold;
-    color: #00c2ff; 
-}
-
-#input-details-container {
-    font-size: 16px;
-    color: #00c2ff;
-    
-}
-
-.input-suggestions ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    color: #a9b1d1;
-    display:block;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: medium;
-    font-weight: bold;
-    width: auto;
-    height: auto;
-}
-
-.input-appliance-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.input-appliance-table th, .input-appliance-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-}
-
-.input-appliance-table th {
-    background-color: rgba(255, 255, 255, 0.08);
-    color: #a9b1d1;
-}
-
-.input-appliance-table td {
-    background-color: rgba(255, 255, 255, 0.08);
-    color: #00c2ff;
-}
-
-.input-appliance-table tr:hover {
-    background-color: rgba(64, 242, 177, 0.2);
-}
-
-#input-output-h2, #input-output-h3, #Threshold {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    color: #a9b1d1;
-    font-size: 30px;
-
-}
-
-.input-stats-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin: 30px auto;
-    width: 80%;
-}
-
-.input-stat-card {
-    flex: 1;
-    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 194, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.input-stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 194, 255, 0.2);
-}
-
-.input-stat-card h3 {
-    color: #a9b1d1;
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.input-stat-card p {
-    color: #00c2ff;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.input-stat-description {
-    color: #a9b1d1;
-    font-size: 14px;
-    margin-top: 8px;
-    display: block;
-    opacity: 0.8;
-}
-
-.input-add-appliance-btn {
-    display: block;
-    margin: 30px auto;
-    padding: 12px 24px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
     background: linear-gradient(90deg, #00c2ff 0%, #01e8f7 100%);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+    display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.input-add-appliance-btn:hover {
+    color: #1a1f35;
+    font-weight: 600;
+  }
+  
+  #Input:hover {
     transform: translateY(-2px);
-    background: linear-gradient(90deg, #00c3ff71 0%, #01e7f771 100%);
-    box-shadow: 0 6px 12px rgba(0, 194, 255, 0.3);
-}
-
-.input-stat-card {
-    flex: 1;
-    background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 194, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.input-stat-card p {
-    color: #00c2ff;
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 194, 255, 0.2);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .app, .Company, .Time, .Freq, .Rating {
+      width: calc(50% - 2rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .app, .Company, .Time, .Freq, .Rating {
+      width: 100%;
+    }
+    
+    #input-energy-h2 {
+      font-size: 32px;
+      padding: 20px;
+    }
+  }
+  
+  /* Keep all output-related styles unchanged */
+  .container {
+      flex-wrap: wrap;
+  }
+  
+  .box {
+      background-color: #fffdf9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 30%;
+      margin: 10px;
+      text-align: center;
+  }
+  
+  #input-overall_consumption, #appliance_consumption {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 1px solid #004037;
+      background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+      color: #00c2ff;
+  }
+  
+  #input-overall_consumption:hover, #appliance_consumption:hover {
+      background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+      cursor: pointer;
+  }
+  
+  #input-output-section {
+      display: block;
+      margin: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #input-output-section h2 {
+      text-align: center;
+      color: white;
+  }
+  
+  #input-output-section div {
+      margin-bottom: 20px;
+  }
+  
+  #input-total-consumption, .input-appliance-details, .input-suggestions {
+      padding: 15px;
+      background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #input-total-power {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00c2ff; 
+  }
+  
+  #input-details-container {
+      font-size: 16px;
+      color: #00c2ff;
+  }
+  
+  .input-suggestions ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: #a9b1d1;
+      display: block;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: medium;
+      font-weight: bold;
+      width: auto;
+      height: auto;
+  }
+  
+  .input-appliance-table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .input-appliance-table th, .input-appliance-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+  }
+  
+  .input-appliance-table th {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #a9b1d1;
+  }
+  
+  .input-appliance-table td {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #00c2ff;
+  }
+  
+  .input-appliance-table tr:hover {
+      background-color: rgba(64, 242, 177, 0.2);
+  }
+  
+  #input-output-h2, #input-output-h3, #Threshold {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: #a9b1d1;
+      font-size: 30px;
+  }
+  
+  .input-stats-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 30px auto;
+      width: 80%;
+  }
+  
+  .input-stat-card {
+      flex: 1;
+      background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(0, 194, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+  }
+  
+  .input-stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 194, 255, 0.2);
+  }
+  
+  .input-stat-card h3 {
+      color: #a9b1d1;
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 600;
+  }
+  
+  .input-stat-card p {
+      color: #00c2ff;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+  }
+  
+  .input-stat-description {
+      color: #a9b1d1;
+      font-size: 14px;
+      margin-top: 8px;
+      display: block;
+      opacity: 0.8;
+  }
+  
+  .input-add-appliance-btn {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1f35;
+      background: linear-gradient(90deg, #00c2ff 0%, #01e8f7 100%);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .input-add-appliance-btn:hover {
+      transform: translateY(-2px);
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0, 194, 255, 0.2);
+  }
+  

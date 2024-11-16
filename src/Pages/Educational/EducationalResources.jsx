@@ -17,13 +17,15 @@ function EducationalResources() {
 
   return (
     <main className="edu-main">
-      <button onClick={handleBack} className="backButton">
-        <ArrowLeft className="backIcon" />
+        <button onClick={handleBack} className="back-btn">
+        <ArrowLeft className="icon" />
         <span>Back</span>
       </button>
       <section className="edu-hero">
         <div className="edu-hero-content">
+          
           <h1>Empowering Through Knowledge</h1>
+          
           <p>
             Explore our curated collection of educational resources to deepen your
             understanding of renewable energy and sustainable practices.
