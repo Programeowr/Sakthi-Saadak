@@ -1,12 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { Zap, Plus, Trash2, DollarSign } from 'lucide-react';
+import { Zap, Plus, Trash2, DollarSign, ArrowLeft } from 'lucide-react';
 import axios from 'axios';
 import EnergyMeter from './Components/EnergyMeter.jsx';
 import './EnergyUsage.css';
 
 function EnergyUsage() {
+
+  const handleBack = () => {
+    window.history.back();
+  };
+
   const [appliances, setAppliances] = useState([]);
   const [newAppliance, setNewAppliance] = useState({
     name: '',
@@ -62,7 +67,6 @@ function EnergyUsage() {
         'Andaman and Nicobar Islands' : 7.5,
         'Chandigarh' : 5,
         'Dadra and Nagar Haveli' : 4.5,
-        'Daman and Diu' : 4.5,
         'Lakshadweep' : 5,
         'Delhi' : 4.5,
         'Puducherry' : 4.5,
@@ -157,6 +161,10 @@ function EnergyUsage() {
 
   return (
     <main className="energy-main">
+      <button onClick={handleBack} className="back-btn">
+          <ArrowLeft className="icon" />
+          <span>Back</span>
+      </button>
       <section className="energy-hero">
         <div className="energy-hero-content">
           <h1>Energy Usage Monitor</h1>

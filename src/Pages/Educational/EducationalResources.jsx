@@ -1,7 +1,12 @@
 import React from 'react';
-import { BookOpen, PlayCircle, ChevronRight, ChevronLeft } from 'lucide-react';
+import { ArrowLeft, BookOpen, PlayCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 import './educational.css'
 function EducationalResources() {
+
+  const handleBack = () => {
+    window.history.back();
+  };
+
   const scrollContainer = (containerId, direction) => {
     const container = document.getElementById(containerId);
     if (container) {
@@ -12,6 +17,10 @@ function EducationalResources() {
 
   return (
     <main className="edu-main">
+      <button onClick={handleBack} className="backButton">
+        <ArrowLeft className="backIcon" />
+        <span>Back</span>
+      </button>
       <section className="edu-hero">
         <div className="edu-hero-content">
           <h1>Empowering Through Knowledge</h1>

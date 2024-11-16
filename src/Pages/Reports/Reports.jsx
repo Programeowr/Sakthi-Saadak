@@ -15,12 +15,10 @@ function Reports() {
 
   return (
     <div className="reports-container">
-      <nav className="reports-nav">
-        <button onClick={handleBack} className="back-btn">
+      <button onClick={handleBack} className="back-btn">
           <ArrowLeft className="icon" />
           <span>Back</span>
-        </button>
-      </nav>
+      </button>
 
       <header className="reports-header">
         <h1>Energy Usage Reports</h1>

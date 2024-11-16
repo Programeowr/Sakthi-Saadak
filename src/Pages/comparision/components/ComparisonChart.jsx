@@ -9,7 +9,6 @@ function ComparisonChart({ materials }) {
     );
   }
 
-  // Get common numeric properties for comparison
   const numericProperties = Object.keys(materials[0]).filter(key => {
     return (
       key !== 'id' &&

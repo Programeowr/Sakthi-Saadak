@@ -6,13 +6,12 @@ import Login from './Pages/Login/Login.jsx'
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword.jsx'
 import Input from './Pages/Input/Input.jsx'
 import Co2 from './Pages/Co2/Co2.jsx';
-import Reports from './Pages/Reports/Reports.jsx';
 import Renewable from './Pages/Renewable/Renewable.jsx';
 import EducationalResources from './Pages/Educational/EducationalResources.jsx';
 import MaterialComparision from './Pages/comparision/MaterialComparision.jsx';
 import EnergyUsage from './Pages/EnergyUsage/EnergyUsage.jsx';
 import FAQ from './Pages/FAQs/FAQ.jsx';
-
+import Reports from './Pages/Reports/Reports.jsx';
 
 
 function App() {
@@ -29,11 +28,10 @@ function App() {
         <Route path="/Renewable" element={<Renewable />} />
         <Route path="/Educational" element={<EducationalResources />} />
         <Route path="/Comparision" element={<MaterialComparision />} />
-        <Route path="/Reports" element={<Reports />} />
         <Route path="/Forgot" element={<ForgotPassword />} />
         <Route path="/EnergyUsage" element={<EnergyUsage />} />
-        <Route path="/FAQ" element={<FAQ/>} />
-
+        <Route path="/Reports" element={<Reports />} />
+        <Route path="/FAQ" element={<FAQ />} />
 
 
       </Routes>

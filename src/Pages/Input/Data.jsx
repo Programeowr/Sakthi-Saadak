@@ -804,7 +804,6 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
         'Andaman and Nicobar Islands' : 7.5,
         'Chandigarh' : 5,
         'Dadra and Nagar Haveli' : 4.5,
-        'Daman and Diu' : 4.5,
         'Lakshadweep' : 5,
         'Delhi' : 4.5,
         'Puducherry' : 4.5,
