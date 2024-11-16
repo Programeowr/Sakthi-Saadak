@@ -111,7 +111,7 @@ function EnergyUsageChart() {
         padding: 10,
         displayColors: false,
         callbacks: {
-          label: (context) => `Power Usage: ${context.raw.toFixed(2)} kWh`
+          label: (context) => `Power Usage: ${context.raw.toFixed(2)} KWh`
         }
       }
     },
@@ -126,7 +126,7 @@ function EnergyUsageChart() {
           font: {
             size: 12
           },
-          callback: (value) => `${value} kWh`
+          callback: (value) => `${value} KWh`
         }
       },
       x: {

@@ -15,17 +15,17 @@ function Output(){
                 <div className="input-stats-container">
                 <div className="input-stat-card">
                     <h3>Energy Used</h3>
-                    <p id="input-energy-used">0 kWh</p>
+                    <p id="input-energy-used">0 W-h</p>
                     <span className="input-stat-description">Total energy consumed by your appliances</span>
                 </div>
                 <div className="input-stat-card">
                     <h3>Threshold Energy</h3>
-                    <p id="input-threshold-energy">0 kWh</p>
+                    <p id="input-threshold-energy">0 W-h</p>
                     <span className="input-stat-description">Average energy consumption benchmark</span>
                 </div>
                 <div className="input-stat-card">
                     <h3>Cost</h3>
-                    <p id="input-cost-value">$0</p>
+                    <p id="input-cost-value">₹ 0</p>
                     <span className="input-stat-description">Estimated cost based on current usage</span>
                 </div>
             </div>

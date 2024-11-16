@@ -934,9 +934,9 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
     const location = await getLocation(token);
     console.log(location);
 
-    let energyUsed = (selectedRating * selectedTime) / 1000;
+    let energyUsed = (selectedRating * selectedTime);
     let energyCost =  energyUsed * (costs[location]);
-    let energyThreshold = thresholds[selectedAppliance] / 1000;
+    let energyThreshold = thresholds[selectedAppliance];
 
     console.log(energyUsed, energyCost, energyThreshold);
 
@@ -948,8 +948,8 @@ async function displayInputCards(selectedAppliance, selectedRating, selectedTime
     inputThreshold.innerHTML = '';
     inputCost.innerHTML='';
 
-    inputEnergy.textContent = `${energyUsed} KW-h`;
-    inputThreshold.textContent = `${energyThreshold} KW-h`;
+    inputEnergy.textContent = `${energyUsed} W-h`;
+    inputThreshold.textContent = `${energyThreshold} W-h`;
     inputCost.textContent = `₹ ${energyCost}`;
 
     return { energyUsed, energyCost };
