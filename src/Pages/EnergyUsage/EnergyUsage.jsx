@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { Zap, Plus, Trash2 } from 'lucide-react';
+import { Zap, Plus, Trash2, DollarSign } from 'lucide-react';
 import axios from 'axios';
 import EnergyMeter from './Components/EnergyMeter.jsx';
 import './EnergyUsage.css';
@@ -153,6 +153,7 @@ function EnergyUsage() {
   }, []);
 
   const totalConsumption = appliances.reduce((sum, app) => sum + Number(app.consumption), 0);
+  const totalCost = appliances.reduce((sum, app) => sum + Number(app.cost), 0);
 
   return (
     <main className="energy-main">
@@ -177,6 +178,10 @@ function EnergyUsage() {
           <div className="total-consumption">
             <Zap className="zap-icon" />
             <span>Total Consumption: {totalConsumption} W-h</span>
+          </div>
+          <div className="total-consumption">
+            <DollarSign className="zap-icon" />
+            <span>Total Cost: ₹ {totalCost} </span>
           </div>
         </div>
 

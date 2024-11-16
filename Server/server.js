@@ -108,6 +108,7 @@ app.get('/get-appliance', authenticateToken, async (req, res) => {
     const appliances = await Appliance.find({ userId: req.user.id });
     
     const formattedAppliances = appliances.map(appliance => ({
+      _id: appliance._id,
       appliance: appliance.appliance,
       company: appliance.company,
       time: appliance.time,
