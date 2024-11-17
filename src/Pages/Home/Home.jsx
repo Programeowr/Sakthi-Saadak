@@ -61,7 +61,7 @@ function Home() {
             <div className="ss-home-nav-item">
               Energy Usage
               <div className="ss-home-dropdown">
-                <a href="/Input" className="ss-home-dropdown-item">Energy Usage</a>
+                <a href="/EnergyUsage" className="ss-home-dropdown-item">Energy Usage</a>
                 <a href="/Carbon" className="ss-home-dropdown-item">Carbon Footprint</a>
               </div>
             </div>

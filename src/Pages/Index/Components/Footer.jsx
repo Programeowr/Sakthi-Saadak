@@ -16,7 +16,7 @@ function Footer() {
               <h3>Quick Links</h3>
               <ul>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#FAQs">FAQs</a></li>
+               
                 
               </ul>
             </div>
