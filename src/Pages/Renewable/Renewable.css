@@ -225,41 +225,13 @@ main {
     font-size: 0.9rem;
 }
 
-
-/* Add these new styles to your existing Renewable.css file */
-
-.RE-card-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  
-  .RE-stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .RE-stat-icon {
-    color: #00c2ff;
-  }
-  
-  .RE-stat-item .value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #00c2ff;
-    line-height: 1;
-  }
-  
   .RE-stat-item p {
     color: #a9b1d1;
     font-size: 0.9rem;
     margin: 0;
   }
   
-  /* Update existing card styles */
+ 
   .RE-potential-card {
     background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
@@ -281,123 +253,7 @@ main {
     filter: drop-shadow(0 0 10px rgba(0, 194, 255, 0.3));
   }
   
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .RE-potential-cards {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-  
-    .RE-card-stats {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  
-    .RE-stat-item {
-      flex: 1 1 calc(33.333% - 1rem);
-      min-width: 120px;
-    }
-  }
 
-
-
-.RE-graph-container {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-}
-
-.RE-graph-container h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-.RE-graph-wrapper {
-    padding: 2rem;
-    height: 400px;
-}
-
-.RE-graph {
-    height: 100%;
-    position: relative;
-}
-
-.RE-graph-line {
-    height: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    border-bottom: 2px solid rgba(169, 177, 209, 0.3);
-    padding-bottom: 2rem;
-}
-
-.RE-graph-point {
-    width: 12px;
-    height: 0;
-    background: linear-gradient(180deg, #00c2ff 0%, #01e8f7 100%);
-    border-radius: 6px;
-    position: relative;
-    transition: height 1s ease;
-}
-
-.RE-tooltip {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffffff;
-    color: #1a1f35;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
-}
-
-.RE-graph-point:hover .tooltip {
-    opacity: 1;
-}
-
-.RE-graph-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-    color: #a9b1d1;
-}
-
-/* Recommendations */
-.RE-recommendations {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 2rem;
-}
-
-.RE-recommendations h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.RE-recommendations ul {
-    list-style: none;
-}
-
-.RE-recommendations li {
-    color: #a9b1d1;
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.RE-recommendations li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #00c2ff;
-}
 
 .backButton {
     position: fixed;
