@@ -1,4 +1,3 @@
-
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -10,13 +9,11 @@ import Appliance from './Models/Appliance.js';
 import Power from './Models/Power.js';
 import { startOfDay, endOfDay } from 'date-fns';
 
-
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET;
-
 
 app.use(cors());
 app.use(express.json());
@@ -34,34 +31,80 @@ const authenticateToken = (req, res, next) => {
       req.user = user;
       next();
     });
+};
+
+// Calculate power and cost for an appliance
+const calculatePowerAndCost = async (appliance, location) => {
+  const costs = {
+    'Andhra Pradesh': 6,
+    'Arunachal Pradesh': 5.5,
+    'Assam': 5.75,
+    'Bihar': 6.75,
+    'Chhattisgarh': 5,
+    'Goa': 3.75,
+    'Gujarat': 5.25,
+    'Haryana': 6.25,
+    'Himachal Pradesh': 4.25,
+    'Jharkhand': 6.25,
+    'Karnataka': 5.5,
+    'Kerala': 4.25,
+    'Madhya Pradesh': 7,
+    'Maharashtra': 6.5,
+    'Manipur': 5.75,
+    'Meghalaya': 4.75,
+    'Mizoram': 5.5,
+    'Nagaland': 5.5,
+    'Odisha': 5.5,
+    'Punjab': 5,
+    'Rajasthan': 6,
+    'Sikkim': 4.5,
+    'Tamil Nadu': 5.25,
+    'Telangana': 6.25,
+    'Tripura': 5,
+    'Uttar Pradesh': 6.5,
+    'Uttarakhand': 4.75,
+    'West Bengal': 6,
+    'Andaman and Nicobar Islands': 7.5,
+    'Chandigarh': 5,
+    'Dadra and Nagar Haveli and Daman and Diu': 4.5,
+    'Lakshadweep': 5,
+    'Delhi': 4.5,
+    'Puducherry': 4.5,
+    'Ladakh': 6.25,
+    'Jammu and Kashmir': 6.25
   };
+
+  const power = appliance.rating * appliance.time;
+  const cost = power * costs[location] / 1000;
+
+  return { power, cost };
+};
 
 app.post('/signup', async (req, res) => {
   const { username, email, password, location } = req.body;
 
   try {
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    if (existingUser) {
+      return res.status(400).json({ error: 'Username or email already exists' });
+    }
 
-      const existingUser = await User.findOne({ $or: [{ username }, { email }] });
-      if (existingUser) {
-        return res.status(400).json({ error: 'Username or email already exists' });
-      }
+    const hashedPassword = await bcrypt.hash(password, 10);
+      
+    const user = new User({
+      username,
+      email,
+      password: hashedPassword,
+      location
+    });
 
-      const hashedPassword = await bcrypt.hash(password, 10);
-        
-      const user = new User({
-          username,
-          email,
-          password: hashedPassword,
-          location
-      });
+    await user.save();
 
-      await user.save();
+    const token = jwt.sign({ id: user._id }, JWT_SECRET);
 
-      const token = jwt.sign({ id: user._id }, JWT_SECRET);
-
-      res.status(201).json({ message: 'User created successfully' , token});
+    res.status(201).json({ message: 'User created successfully', token });
   } catch (error) {
-       res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 });
 
@@ -81,7 +124,7 @@ app.post('/login', async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET);
 
-    res.status(200).json({ message: 'Login successful', token, user});
+    res.status(200).json({ message: 'Login successful', token, user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'An error occurred' });
@@ -93,7 +136,7 @@ app.post('/save-appliance', authenticateToken, async (req, res) => {
 
   try {
     const record = new Appliance({
-      userId: req.user.id, 
+      userId: req.user.id,
       appliance,
       company,
       time,
@@ -150,8 +193,41 @@ app.delete('/delete-appliance/:id', authenticateToken, async (req, res) => {
       return res.status(404).json({ message: 'Appliance not found' });
     }
 
+    // Get user's location for cost calculation
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Calculate power and cost to subtract
+    const { power, cost } = await calculatePowerAndCost(appliance, user.location);
+
+    // Find and update the power record for the appliance's date
+    const powerRecord = await Power.findOne({
+      userId: req.user.id,
+      date: appliance.date
+    });
+
+    if (powerRecord) {
+      powerRecord.power -= power;
+      powerRecord.cost -= cost;
+
+      // If power and cost become zero or negative, remove the record
+      if (powerRecord.power <= 0 && powerRecord.cost <= 0) {
+        await Power.findByIdAndDelete(powerRecord._id);
+      } else {
+        await powerRecord.save();
+      }
+    }
+
+    // Delete the appliance
     await Appliance.findByIdAndDelete(applianceId);
-    res.status(200).json({ message: 'Appliance deleted successfully' });
+    
+    res.status(200).json({ 
+      message: 'Appliance deleted successfully',
+      updatedPower: powerRecord ? powerRecord.power : 0,
+      updatedCost: powerRecord ? powerRecord.cost : 0
+    });
   } catch (error) {
     console.error('Error deleting appliance:', error);
     res.status(500).json({ 
@@ -160,8 +236,6 @@ app.delete('/delete-appliance/:id', authenticateToken, async (req, res) => {
     });
   }
 });
-
-
 
 app.post('/save-power', authenticateToken, async (req, res) => {
   const { power, cost, date } = req.body;
@@ -262,17 +336,16 @@ app.get('/get-average-power', authenticateToken, async (req, res) => {
 
 app.get('/get-location', authenticateToken, async (req, res) => {
   try {
-      const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id);
 
-      if (!user) {
-          return res.status(404).json({ message: "User not found" });
-      }
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
-      res.json({ location: user.location });
-
+    res.json({ location: user.location });
   } catch (error) {
-      console.error("Error fetching user location:", error);
-      res.status(500).json({ message: "Internal server error" });
+    console.error("Error fetching user location:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
