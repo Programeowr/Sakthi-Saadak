@@ -1,40 +1,46 @@
 import React from 'react';
-import { Sun, DollarSign, Leaf } from 'lucide-react';
-import PotentialCard from './PotentialCard';
-import SeasonalGraph from './SeasonalGraph';
-import Recommendations from './Recommendations';
+import { Sun, Wind } from 'lucide-react';
 
-function Results({ showResults }) {
-
+function Results() {
   return (
-    <section id="RE-results" className={`results-section ${showResults ? 'visible' : ''}`}>
-        <div className="RE-potential-overview">
-            <h2>Your Renewable Energy Potential</h2>
-            <div className="RE-potential-cards">
-            <PotentialCard
-                icon={<Sun className="RE-card-icon" />}
-                title="Annual Energy Generation"
-                value="12,500 kWh"
-                description="Potential solar energy generation per year"
-            />
-            <PotentialCard
-                icon={<DollarSign className="RE-card-icon" />}
-                title="Cost Savings"
-                value="₹10,875"
-                description="Estimated annual savings on energy bills"
-            />
-            <PotentialCard
-                icon={<Leaf className="RE-card-icon" />}
-                title="CO₂ Reduction"
-                value="8.9 tons"
-                description="Annual carbon emission reduction"
-            />
-            </div>
+    <section className="RE-results-section visible">
+      <div className="RE-potential-overview">
+        <h2>Your Renewable Energy Potential</h2>
+
+        <div className="RE-potential-cards" style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+          {/* Solar Potential Card */}
+          <div 
+            className="RE-potential-card" 
+            style={{
+              textAlign: 'center',
+              padding: '20px',
+              minHeight: '200px', // Ensure space for future text
+              width: '300px'      // Control card width
+            }}
+          >
+            <Sun className="RE-card-icon" size={48} />
+            <h3>Solar Energy Potential</h3>
+            {/* Empty space for future text */}
+          </div>
+
+          {/* Wind Potential Card */}
+          <div 
+            className="RE-potential-card" 
+            style={{
+              textAlign: 'center',
+              padding: '20px',
+              minHeight: '200px', // Ensure space for future text
+              width: '300px'      // Control card width
+            }}
+          >
+            <Wind className="RE-card-icon" size={48} />
+            <h3>Wind Energy Potential</h3>
+            {/* Empty space for future text */}
+          </div>
         </div>
-            <SeasonalGraph />
-            <Recommendations />
-        </section>
+      </div>
+    </section>
   );
 }
 
-export default Results
+export default Results;
