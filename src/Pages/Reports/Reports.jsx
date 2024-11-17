@@ -41,7 +41,7 @@ function Reports() {
         </section>
 
         <section className="stats-section">
-          <h2>Comparison Statistics</h2>
+          <h2>Statistics Compared with Previous Week</h2>
           <ComparisonStats/>
         </section>
       </div>

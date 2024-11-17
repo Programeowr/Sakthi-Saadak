@@ -42,10 +42,6 @@ function Content() {
               Get Started
               <ArrowRight className="btn-icon" />
             </a>
-            <a
-            href="/FAQ" className="secondary-btn animate-scale-in">
-              Learn More
-            </a>
           </div>
         </div>
 
