@@ -68,7 +68,7 @@ function Home() {
             <div className="ss-home-nav-item">
               View
               <div className="ss-home-dropdown">
-                <a href="/Comparsion" className="ss-home-dropdown-item">Material Comparison</a>
+                <a href="/Comparision" className="ss-home-dropdown-item">Material Comparison</a>
                 <a href="/Reports" className="ss-home-dropdown-item">Reports & Graphs</a>
                 <a href="/Educational" className="ss-home-dropdown-item">Educational Articles</a>
               </div>
