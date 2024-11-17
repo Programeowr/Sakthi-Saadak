@@ -1,15 +1,24 @@
-import Data from '../Data.jsx'
-import Output from './Output.jsx'
+import React, { useState } from 'react';
+import Data from '../Data.jsx';
+import Output from './Output.jsx';
+import { Loader2 } from 'lucide-react';
 
-function SelectBox(){
+function SelectBox() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    return(
+    const handleSubmit = async () => {
+        setIsSubmitting(true);
+        await Data();
+        setIsSubmitting(false);
+    };
+
+    return (
         <>
             <h2 id="input-energy-h2">INPUT YOUR ENERGY USAGE</h2>
-            <div id="input-sel" >
+            <div id="input-sel">
                 <div className="app">
                     <label htmlFor="Appliance">Appliance</label>
-                    <select name="Appliance" id="Appliance" defaultValue=""required onChange={Data}>
+                    <select name="Appliance" id="Appliance" defaultValue="" required onChange={Data}>
                         <option value="" disabled>Select an Appliance</option>
                         <option value="Refrigerator">Refrigerator</option>
                         <option value="Microwave">Microwave</option>
@@ -30,15 +39,15 @@ function SelectBox(){
 
                 <div className="Company">
                     <label htmlFor="Company">Company</label>
-                    <select id="Company" name="Company" defaultValue =""disabled required>
+                    <select id="Company" name="Company" defaultValue="" disabled required>
                         <option value="" disabled>Select a Company</option>
                     </select>
                 </div>
 
                 <div className="Time">
                     <label htmlFor="Time">Time</label>
-                    <select name="Time" id="Time" defaultValue=""disabled required>
-                    <option value="" disabled>Amount of Time Used</option>   
+                    <select name="Time" id="Time" defaultValue="" disabled required>
+                        <option value="" disabled>Amount of Time Used</option>
                     </select>
                 </div>
 
@@ -56,16 +65,29 @@ function SelectBox(){
 
                 <div className="Rating">
                     <label htmlFor="Rating">Rating</label>
-                    <select name="Rating" id="Rating" defaultValue="" disabled required>
+                    <select name="Rating" id="Rating" defaultValue="" disabled required onChange={Data}>
                         <option value="" disabled>Select the Power Rating</option>
                     </select>
                 </div>
-                
             </div>
 
-            <button id="Input">Submit</button>
+            <button 
+                id="Input" 
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className={isSubmitting ? 'loading' : ''}
+            >
+                {isSubmitting ? (
+                    <>
+                        <Loader2 className="animate-spin mr-2" size={20} />
+                        Calculating...
+                    </>
+                ) : (
+                    'Submit'
+                )}
+            </button>
         </>
     );
 }
 
-export default SelectBox
+export default SelectBox;

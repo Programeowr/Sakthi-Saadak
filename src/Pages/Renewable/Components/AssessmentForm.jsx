@@ -1,12 +1,15 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Loader2 } from 'lucide-react';
 
 function AssessmentForm({ onSubmit }) {
   const [location, setLocation] = React.useState('');
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(location);
+    setIsLoading(true);
+    await onSubmit(location);
+    setIsLoading(false);
   };
 
   return (
@@ -22,11 +25,25 @@ function AssessmentForm({ onSubmit }) {
             onChange={(e) => setLocation(e.target.value)}
             placeholder="Enter your city or postal code"
             required
+            disabled={isLoading}
           />
         </div>
-        <button type="submit" className="RE-submit-button">
-          Calculate Potential
-          <ArrowRight className="RE-button-icon" />
+        <button 
+          type="submit" 
+          className="RE-submit-button"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="RE-button-icon animate-spin" />
+              Calculating...
+            </>
+          ) : (
+            <>
+              Calculate Potential
+              <ArrowRight className="RE-button-icon" />
+            </>
+          )}
         </button>
       </form>
     </section>
