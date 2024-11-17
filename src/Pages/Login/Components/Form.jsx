@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
 import axios from 'axios';
 
 function Form() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     function handleEmail(e) {
@@ -17,6 +19,7 @@ function Form() {
 
     async function clickLogin(e) {
         e.preventDefault();
+        setIsLoading(true);
 
         try {
             const response = await axios.post('https://sakthi-saadak-backend.onrender.com/login', {
@@ -27,14 +30,15 @@ function Form() {
             const token = response.data.token; 
             if (token) { 
                 localStorage.setItem('token', token);
+                navigate('/Home');
             } else {
                 alert('No token received, login failed');
             }
-
-            navigate('/Home');
         } catch (error) {
             console.error('Error during login:', error);
             alert(error.response?.data?.message || 'Login failed');
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -54,6 +58,7 @@ function Form() {
                             value={email}
                             onChange={handleEmail}
                             required
+                            disabled={isLoading}
                         />
                     </div>
                     <div>
@@ -65,9 +70,23 @@ function Form() {
                             value={password}
                             onChange={handlePassword}
                             required
+                            disabled={isLoading}
                         />
                     </div>
-                    <button type="submit" className="signup-button">Login</button>
+                    <button 
+                        type="submit" 
+                        className={`signup-button ${isLoading ? 'loading' : ''}`}
+                        disabled={isLoading}
+                    >
+                        {isLoading ? (
+                            <>
+                                <Loader2 className="animate-spin mr-2" size={16} />
+                                Logging in...
+                            </>
+                        ) : (
+                            'Login'
+                        )}
+                    </button>
                 </form>
                 <div className="info">
                     <p>Don't have an account? <a href="/Signup">Sign up</a></p>

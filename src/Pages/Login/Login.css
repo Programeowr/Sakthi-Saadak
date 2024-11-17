@@ -65,3 +65,27 @@
 .login-link:hover {
     text-decoration: underline;
 }
+
+.signup-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.signup-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.signup-button.loading {
+    background-color: #4a4a4a;
+}
+
+/* Ensure inputs show disabled state */
+input:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+}
