@@ -76,7 +76,7 @@ function Home() {
             <div className="ss-home-nav-item">
               Renewable Energy
               <div className="ss-home-dropdown">
-                <a href="/renewable-potential" className="ss-home-dropdown-item">Renewable Energy Potential</a>
+                <a href="/Renewable" className="ss-home-dropdown-item">Renewable Energy Potential</a>
               </div>
             </div>
             <button onClick={handleLogout} className="ss-home-logout-button">
