@@ -75,7 +75,7 @@ function EducationalResources() {
             <p>Learn the fundamentals of solar power generation</p>
           </a>
           <a
-            href="https://youtu.be/xKxrkht7CpY?feature=shared"
+            href="https://www.youtube.com/watch?v=sUvaYycoWqI"
             target="_blank"
             rel="noopener noreferrer"
             className="edu-card"
