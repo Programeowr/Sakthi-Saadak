@@ -6,12 +6,6 @@ import { Loader2 } from 'lucide-react';
 function SelectBox() {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleSubmit = async () => {
-        setIsSubmitting(true);
-        await Data();
-        setIsSubmitting(false);
-    };
-
     return (
         <>
             <h2 id="input-energy-h2">INPUT YOUR ENERGY USAGE</h2>
@@ -65,7 +59,7 @@ function SelectBox() {
 
                 <div className="Rating">
                     <label htmlFor="Rating">Rating</label>
-                    <select name="Rating" id="Rating" defaultValue="" disabled required onChange={Data}>
+                    <select name="Rating" id="Rating" defaultValue="" disabled required>
                         <option value="" disabled>Select the Power Rating</option>
                     </select>
                 </div>
@@ -73,7 +67,6 @@ function SelectBox() {
 
             <button 
                 id="Input" 
-                onClick={handleSubmit}
                 disabled={isSubmitting}
                 className={isSubmitting ? 'loading' : ''}
             >

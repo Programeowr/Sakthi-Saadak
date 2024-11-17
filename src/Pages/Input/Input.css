@@ -44,13 +44,18 @@
     width: calc(33.333% - 2rem);
     min-width: 280px;
     color: #a9b1d1;
-    ;
+    
     background: linear-gradient(135deg, #1a1f35 0%, #0f1623 100%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     border: 1px solid rgba(0, 194, 255, 0.1);
     align-items: center;
     transition: all 0.3s ease;
+  }
+
+
+  .label{
+    margin-bottom: 5px;
   }
   
   .app:hover, .Company:hover, .Time:hover, .Freq:hover, .Rating:hover {
