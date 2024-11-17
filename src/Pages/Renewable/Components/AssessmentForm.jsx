@@ -1,13 +1,12 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 function AssessmentForm({ onSubmit }) {
   const [location, setLocation] = React.useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit();
+    onSubmit(location);
   };
 
   return (

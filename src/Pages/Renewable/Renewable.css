@@ -287,6 +287,18 @@ main {
     transform: translateX(-4px);
   }
 
+  .RE-results-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    scroll-margin-top: 2rem;
+  }
+  
+  .RE-results-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 /* Animations */
 @keyframes float {
     0% { transform: translateY(0px); }
