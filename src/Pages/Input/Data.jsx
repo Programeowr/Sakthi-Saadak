@@ -1,6 +1,28 @@
 import axios from 'axios'
 import { getEnergyRecommendations } from './InputGemini.ts';
 
+function resetSelectBoxes() {
+    const appSelect = document.getElementById('Appliance');
+    const compSelect = document.getElementById('Company');
+    const timeSelect = document.getElementById('Time');
+    const freqSelect = document.getElementById('Freq');
+    const rateSelect = document.getElementById('Rating');
+
+    appSelect.value = '';
+    compSelect.value = '';
+    timeSelect.value = '';
+    freqSelect.value = '';
+    rateSelect.value = '';
+
+    compSelect.disabled = true;
+    timeSelect.disabled = true;
+    rateSelect.disabled = true;
+
+    compSelect.innerHTML = '<option value="" disabled selected>Select a Company</option>';
+    timeSelect.innerHTML = '<option value="" disabled selected>Amount of Time Used</option>';
+    rateSelect.innerHTML = '<option value="" disabled selected>Select the Power Rating</option>';
+}
+
 function Data(){
     const appSelect = document.getElementById('Appliance');
     const compSelect = document.getElementById('Company');
@@ -145,6 +167,8 @@ function Data(){
         console.log(sAppliance, sCompany, sTime, sFreq, sTime);
         await saveApplianceData(sAppliance, sCompany, sTime, sFreq, sRating);
         await savePowerCost(energyUsed, energyCost);
+
+        resetSelectBoxes();
     };
 
     const addButton = document.getElementById('add-appliance-button');
