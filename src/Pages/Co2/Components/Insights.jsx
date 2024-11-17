@@ -4,19 +4,21 @@ import { getRecommendations } from '../JSB/CarbonGemini.ts';
 function Insights() {
     const [recommendations, setRecommendations] = useState([]);
 
-    useEffect(() => {
-        async function fetchRecommendations() {
-            const calculationElement = document.getElementById('calculation');
-            const emissionValue = calculationElement?.textContent 
-                ? parseFloat(calculationElement.textContent) 
-                : 0;9
+        useEffect(() => {
+            async function fetchRecommendations() {
+                const calculationElement = document.getElementById('calculation');
+                const emissionValue = calculationElement?.textContent 
+                    ? parseFloat(calculationElement.textContent) 
+                    : 0;
+    
+                const aiRecommendations = await getRecommendations(emissionValue);
+                setRecommendations(aiRecommendations);
+            }
+    
+            fetchRecommendations();
+        }, []);
 
-            const aiRecommendations = await getRecommendations(emissionValue);
-            setRecommendations(aiRecommendations);
-        }
-
-        fetchRecommendations();
-    }, []);
+    
 
     return (
         <div className="insights-container" id="calculation-container">

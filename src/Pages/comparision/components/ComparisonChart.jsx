@@ -51,4 +51,4 @@ function ComparisonChart({ materials }) {
   );
 }
 
-export default ComparisonChart;
+export default ComparisonChart

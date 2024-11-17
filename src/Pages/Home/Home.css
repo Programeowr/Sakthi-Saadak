@@ -88,6 +88,7 @@
   }
   
   .ss-home-dropdown-item:hover {
+    text-decoration: none;
     background: var(--secondary);
     color: var(--primary);
   }

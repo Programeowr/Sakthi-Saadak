@@ -3,7 +3,7 @@ import { Plus, Check } from 'lucide-react';
 
 const materialData = {
   Washing: [
-    { id: 'topLoad', name: 'Top Load', 'Energy Efficiency (KWh/Load)': 0.25, 'Lifespan': `12 years`, 'Carbon Foorprint (Kg-CO2/year)': 150, 'Recyclability' : `Moderate` },
+    { id: 'topLoad', name: 'Top Load', 'Energy Efficiency (KWh/Load)': 0.25, 'Lifespan': `12 years`, 'Carbon Foorprint (Kg-CO2/year)': 150, 'Recyclability' : `Moderate`, 'info': 'A washing machine with a horizontal drum that loads and unloads clothes through a door on the front.' },
     { id: 'frontLoad', name: 'Front Load', 'Energy Efficiency (KWh/Load)': 0.15, 'Lifespan': `15 years`, 'Carbon Foorprint (Kg-CO2/year)': 100, 'Recyclability' : `High` },
     { id: 'he-topLoad', name: 'High-Efficiency Top Load', 'Energy Efficiency (KWh/Load)': 0.2, 'Lifespan': `12 years`, 'Carbon Foorprint (Kg-CO2/year)': 125, 'Recyclability' : `High` },
     { id: 'compact', name: 'Compact', 'Energy Efficiency (KWh/Load)': 0.2, 'Lifespan': `10 years`, 'Carbon Foorprint (Kg-CO2/year)': 250, 'Recyclability' : `Moderate` },
@@ -62,14 +62,11 @@ const materialData = {
     { id: 'cfl', name: 'CFLs', 'Energy Efficiency (lumens/watt)': 60, 'Lifespan (hours)': 9000, 'Heat Emission': `35%`, 'Recyclability': `Moderate` },
     { id: 'fluorescent', name: 'Fluorescent Tube Lights', 'Energy Efficiency (lumens/watt)': 70, 'Lifespan (hours)': 10000, 'Heat Emission': `25%`, 'Recyclability': `Moderate` },
   ],
-
-
-
-
-
-
-
 };
+
+const materialInfo = {
+    Washing: [{ id: 'topLoad', name: 'Top Load', info: 'A washing machine with a horizontal drum that loads and unloads clothes through a door on the front.' }],
+}
 
 function MaterialGrid({ category, onSelectMaterial, selectedMaterials }) {
   const materials = materialData[category] || [];
@@ -86,10 +83,9 @@ function MaterialGrid({ category, onSelectMaterial, selectedMaterials }) {
             <h3>{material.name}</h3>
             <div className="mc-material-specs">
             {Object.entries(material).map(([key, value]) => {
-                if (key !== 'id' && key !== 'name') {
+                if (key === 'info') {
                   return (
                     <div key={key} className="mc-spec">
-                      <span className="mc-spec-label">{key}</span>
                       <span className="mc-spec-value">{value}</span>
                     </div>
                   );

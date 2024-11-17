@@ -13,7 +13,7 @@ function ComparisonTable({ materials, onRemoveMaterial }) {
   const allProperties = new Set();
   materials.forEach(material => {
     Object.keys(material).forEach(key => {
-      if (key !== 'id' && key !== 'name') {
+      if (key !== 'id' && key !== 'name' && key!== 'info') {
         allProperties.add(key);
       }
     });

@@ -3,6 +3,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 const genAI = new GoogleGenerativeAI("AIzaSyD3yRCQ5k5WqF70tMkTIfiBpY-LM0VHFow");
 
 export async function getRecommendations(emissions : number) {
+
   const prompt = `Given monthly CO2 emissions of ${emissions} kg due to Energy Usage, provide 3 specific, actionable recommendations to reduce carbon footprint. Format as a bullet list. Don't bold the text and don't hyphenate.`;
   
   try {

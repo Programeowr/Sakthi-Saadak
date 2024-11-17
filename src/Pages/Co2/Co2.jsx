@@ -36,7 +36,7 @@ function Co2() {
       <Hero />
       <section id="emissions-data" className="emissions-section">
         <div className="co2-button">
-          <button className="cta-button" onClick={handleEmmision}>Click to know your carbon footprint</button>
+          <button className="cta-button" id="calculate-button" onClick={handleEmmision}>Click to know your carbon footprint</button>
         </div>
         <Insights />
       </section>
