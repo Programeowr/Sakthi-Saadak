@@ -26,12 +26,7 @@ function NavBar() {
               <span>About</span>
             </a>
           </li>
-          <li>
-            <a href="/FAQ" className="nav-link">
-              <Menu className="nav-icon" />
-              <span>FAQs</span>
-            </a>
-          </li>
+         
         </ul>
       </div>
     </nav>
