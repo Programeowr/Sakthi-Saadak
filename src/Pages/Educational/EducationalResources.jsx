@@ -59,7 +59,7 @@ function EducationalResources() {
         </div>
         <div className="edu-scroll-container" id="videos-container">
           <a
-            href="https://www.youtube.com/watch?v=keJjL8VXBGE"
+            href="https://youtu.be/sUvaYycoWqI?si=xkG0vsvzZdCOuOXm"
             target="_blank"
             rel="noopener noreferrer"
             className="edu-card"
@@ -75,7 +75,7 @@ function EducationalResources() {
             <p>Learn the fundamentals of solar power generation</p>
           </a>
           <a
-            href="https://youtu.be/xKxrkht7CpY?feature=shared"
+            href="https://youtu.be/f0p0Fria5TY?si=3gA3vsyY9a8T84e6"
             target="_blank"
             rel="noopener noreferrer"
             className="edu-card"
