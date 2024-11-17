@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowLeft, Loader2 } from 'lucide-react';
 import Hero from './Components/Hero';
 import Insights from './Components/Insights';
 import Emmisions from './JSB/Emmisions'
 import './Co2.css'; 
 
 function Co2() {
+  const [calculating, setCalculating] = useState(false);
 
   const handleBack = () => {
     window.history.back();
@@ -15,16 +16,18 @@ function Co2() {
     window.scrollTo(0, 0);
   }, []);
 
-  function handleEmmision(){
+  async function handleEmmision() {
+    setCalculating(true);
     const token = localStorage.getItem('token');
     const insights = document.getElementById("calculation-container");
   
     window.scrollTo({
       top: insights.offsetTop,  
       behavior: 'smooth'  
-  });
+    });
 
-    Emmisions(token);
+    await Emmisions(token);
+    setCalculating(false);
   }
 
   return (
@@ -36,7 +39,21 @@ function Co2() {
       <Hero />
       <section id="emissions-data" className="emissions-section">
         <div className="co2-button">
-          <button className="cta-button" id="calculate-button" onClick={handleEmmision}>Click to know your carbon footprint</button>
+          <button 
+            className="cta-button" 
+            id="calculate-button" 
+            onClick={handleEmmision}
+            disabled={calculating}
+          >
+            {calculating ? (
+              <span className="flex items-center justify-center">
+                <Loader2 className="w-5 h-5 animate-spin mr-2" />
+                Calculating...
+              </span>
+            ) : (
+              'Click to know your carbon footprint'
+            )}
+          </button>
         </div>
         <Insights />
       </section>

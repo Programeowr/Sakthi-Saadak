@@ -91,7 +91,7 @@ function EducationalResources() {
             <p>Discover modern wind power solutions</p>
           </a>
           <a
-            href="https://www.youtube.com/watch?v=ZmHX5F_r6ws"
+            href="https://youtu.be/rfS8X0qF47s?si=CWRwIQ9NEHO8baJS"
             target="_blank"
             rel="noopener noreferrer"
             className="edu-card"
@@ -107,7 +107,7 @@ function EducationalResources() {
             <p>Understanding water-based energy generation</p>
           </a>
           <a
-            href="https://www.youtube.com/watch?v=4opVos_GWxw"
+            href="https://youtu.be/ZSUoClnyyN4?si=Tl67ho1m5aWeavBe"
             target="_blank"
             rel="noopener noreferrer"
             className="edu-card"
