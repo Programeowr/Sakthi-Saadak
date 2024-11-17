@@ -220,7 +220,7 @@ function EnergyUsage() {
                     <td>₹{appliance.cost}</td>
                     <td>
                       <button 
-                        className="delete-button"
+                        className="delete-btn"
                         onClick={() => handleDeleteAppliance(appliance._id)}
                       >
                         <Trash2 size={16} />
