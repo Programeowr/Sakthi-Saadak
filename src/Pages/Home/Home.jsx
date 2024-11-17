@@ -1,20 +1,22 @@
 import React from 'react';
 import './Home.css';
-import { Leaf, BarChart, Calculator, FileText, BookOpen, Sun, Activity } from 'lucide-react';
+import { Leaf, BarChart, Calculator, FileText, BookOpen, Sun, Activity, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from "lucide-react";
 
 function Home() {
+  const handleLogout = () => {
+    // Add logout logic here
+    window.location.href = '/login';
+  };
 
   return (
     <div className="ss-home-body">
       <nav className="ss-home-navbar">
-
         <div className="ss-home-nav-content">
-        
-        <h2 style={{ fontSize: '35px', fontFamily: "'Yanone Kaffeesatz', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", fontWeight: 400, color: '#f5f5dc' }}>
-  SAKTHI SAADHAK
-</h2>
+          <h2 style={{ fontSize: '35px', fontFamily: "'Yanone Kaffeesatz', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif", fontWeight: 400, color: '#f5f5dc' }}>
+            SAKTHI SAADHAK
+          </h2>
           
           <div className="ss-home-nav-links">
             <div className="ss-home-nav-item">
@@ -38,6 +40,10 @@ function Home() {
                 <a href="/renewable-potential" className="ss-home-dropdown-item">Renewable Energy Potential</a>
               </div>
             </div>
+            <button onClick={handleLogout} className="ss-home-logout-button">
+              <LogOut size={18} />
+              <span>Logout</span>
+            </button>
           </div>
         </div>
       </nav>
@@ -66,7 +72,6 @@ function Home() {
       </section>
 
       <div className="ss-home-features-grid">
-        
         <div className="ss-home-feature-card" onClick={() => window.location.href = '/EnergyUsage'}>
           <Activity className="ss-home-feature-icon" />
           <h3 className="ss-home-feature-title">Energy Usage</h3>
@@ -102,4 +107,4 @@ function Home() {
   );
 }
 
-export default Home
+export default Home;

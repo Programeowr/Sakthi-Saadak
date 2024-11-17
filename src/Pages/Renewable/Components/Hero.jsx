@@ -11,9 +11,7 @@ function Hero() {
           you could make on the environment. Get personalized insights based on your
           location and property specifications.
         </p>
-        <a href="#assessment" className="RE-cta-button">
-          Start Assessment
-        </a>
+       
       </div>
       <div className="RE-hero-image">
         <Sun size={400} color="#00c2ff" strokeWidth={1} />

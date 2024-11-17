@@ -1,194 +1,221 @@
+.ss-home-logout-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #f5f5dc;
+  border-radius: 50px;
+  color: #f5f5dc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  margin-left: 2rem;
+}
+
+.ss-home-logout-button:hover {
+  background: rgba(245, 245, 220, 0.1);
+  transform: translateY(-2px);
+}
+
 :root {
-    --primary: #2e7d32;
-    --secondary: #f5f1eb;
-    --accent: #4caf50;
-    --text: #2c3e50;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .ss-home-body {
-    font-family: system-ui, -apple-system, sans-serif;
-    color: var(--text);
-    line-height: 1.6;
-    background-color: white
-  }
-  
-  .ss-home-navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #011c18;
-    padding: 1rem 2rem;
-    box-shadow: var(--box-shadow);
-    z-index: 1000;
-  }
-  
-  .ss-home-nav-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .ss-home-logo {
-    font-size: 1.5rem;
-    font-family:"Yanone Kaffeesatz, ";
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
-  }
-  
-  .ss-home-nav-links {
-    display: flex;
-    gap: 2rem;
-  }
-  
-  .ss-home-nav-item {
-    position: relative;
-    padding: 0.5rem 1rem;
-    color: beige;
-    cursor: pointer;
-  }
-  
-  .ss-home-nav-item:hover .ss-home-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  
-  .ss-home-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 200px;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: var(--transition);
-  }
-  
-  .ss-home-dropdown-item {
-    padding: 0.5rem;
-    color: var(--text);
-    text-decoration: none;
-    display: block;
-    transition: var(--transition);
-  }
-  
-  .ss-home-dropdown-item:hover {
-    text-decoration: none;
-    background: var(--secondary);
-    color: var(--primary);
-  }
-  
-  .ss-home-hero {
-    padding: 8rem 2rem 4rem;
-    background-color: #004239;
-    background: linear-gradient(135deg, #004239, #015148, #638a87);
+  --primary: #2e7d32;
+  --secondary: #f5f1eb;
+  --accent: #4caf50;
+  --text: #2c3e50;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
 
-    text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  }
-  
-  .ss-home-hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .ss-home-hero-title {
-    font-size: 3.5rem;
-    color: beige;
-    margin-bottom: 1.5rem;
+.ss-home-body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background-color: white
+}
+
+.ss-home-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #011c18;
+  padding: 1rem 2rem;
+  box-shadow: var(--box-shadow);
+  z-index: 1000;
+}
+
+.ss-home-nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ss-home-logo {
+  font-size: 1.5rem;
+  font-family:"Yanone Kaffeesatz, ";
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.ss-home-nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ss-home-nav-item {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: beige;
+  cursor: pointer;
+}
+
+.ss-home-nav-item:hover .ss-home-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.ss-home-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 200px;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: var(--transition);
+}
+
+.ss-home-dropdown-item {
+  padding: 0.5rem;
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+  transition: var(--transition);
+}
+
+.ss-home-dropdown-item:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.ss-home-hero {
+  padding: 8rem 2rem 4rem;
+  background-color: #004239;
+  background: linear-gradient(135deg, #004239, #015148, #638a87);
+  text-align: center;
+}
+
+.ss-home-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ss-home-hero-title {
+  font-size: 3.5rem;
+  color: beige;
+  margin-bottom: 1.5rem;
+}
+
+.ss-home-hero-features {
+  display: flex;
+  justify-content: center;
+  color: white;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.ss-home-hero-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ss-home-input-energy {
+  margin: 2rem 0;
+}
+
+.ss-home-cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+.ss-home-cta-button:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.ss-home-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  background-color: white;
+  margin: 0 auto;
+}
+
+.ss-home-feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.ss-home-feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.ss-home-feature-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.ss-home-feature-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .ss-home-features-grid {
+    grid-template-columns: 1fr;
   }
   
   .ss-home-hero-features {
-    display: flex;
-    justify-content: center;
-    color: white;
-    gap: 2rem;
-    margin: 2rem 0;
+    flex-direction: column;
   }
-  
-  .ss-home-hero-feature {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+
+  .ss-home-nav-links {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .ss-home-input-energy {
-    margin: 2rem 0;
+
+  .ss-home-logout-button {
+    margin: 1rem 0;
+    margin-left: 1rem;
   }
-  
-  .ss-home-cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: var(--transition);
-  }
-  
-  .ss-home-cta-button:hover {
-    background: var(--accent);
-    transform: translateY(-2px);
-   ;
-  }
-  
-  .ss-home-features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    background-color: white;
-    margin: 0 auto;
-  }
-  
-  .ss-home-feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    transition: var(--transition);
-    cursor: pointer;
-  }
-  
-  .ss-home-feature-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .ss-home-feature-icon {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-  }
-  
-  .ss-home-feature-title {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-  }
-  
-  @media (max-width: 768px) {
-    .ss-home-features-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .ss-home-hero-features {
-      flex-direction: column;
-    }
-  }
+}

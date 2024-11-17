@@ -102,23 +102,23 @@ function Form() {
             <h3 style={{ fontFamily: 'sans-serif' }}>Sign-up</h3>
             <form id="signup-form" onSubmit={clickSignup}>
                 <div>
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="username" className="signup-label">Username:</label>
                     <input type="text" id="username" name="username" onChange={handleUsername} required />
                 </div>
                 <div>
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email" className="signup-label">Email:</label>
                     <input type="email" id="email" name="email" onChange={handleEmail} required />
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password" className="signup-label">Password:</label>
                     <input type="password" id="password" name="password" onChange={handlePassword} required />
                 </div>
                 <div>
-                    <label htmlFor="confirm-password">Confirm Password:</label>
+                    <label htmlFor="confirm-password" className="signup-label">Confirm Password:</label>
                     <input type="password" id="confirm-password" name="confirm-password" onChange={handleConfirmPassword} required />
                 </div>
                 <div>
-                    <label htmlFor="state">Location:</label>
+                    <label htmlFor="state" className="signup-label">Location:</label>
                     <select 
                         id="state" 
                         name="state" 

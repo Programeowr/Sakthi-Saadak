@@ -7,7 +7,8 @@ function Footer() {
         <div className="footer-main">
           <div className="footer-brand">
             <h2>Sakthi Saadhak</h2>
-            <p>Let us together protect our Mother Earth and save on bills!</p>
+            <p>
+            Let’s protect Earth and save on bills! Simple changes like using less energy and water make a big difference. Together, we can create a greener, more affordable future!            </p>
           </div>
           
           <div className="footer-links">
