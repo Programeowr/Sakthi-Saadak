@@ -2,13 +2,52 @@ import React from 'react';
 import './Home.css';
 import { Leaf, BarChart, Calculator, FileText, BookOpen, Sun, Activity, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { ArrowLeft } from "lucide-react";
 
 function Home() {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    // Add logout logic here
-    window.location.href = '/login';
-  };
+    localStorage.removeItem('token');
+    localStorage.clear();
+    navigate('/');
+  }; 
+
+  useEffect(() => {
+    // Check if user is authenticated
+    const checkAuth = () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        navigate('/');
+      }
+    };
+
+    // Handle back button press
+    const handleBackButton = (event) => {
+      event.preventDefault();
+      handleLogout();
+    };
+
+    // Add event listeners
+    window.addEventListener('popstate', handleBackButton);
+    checkAuth();
+
+    // Replace current state to handle direct back button
+    window.history.pushState(null, '', window.location.pathname);
+
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, [navigate]);
+
+  // Prevent direct URL access
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   return (
     <div className="ss-home-body">
