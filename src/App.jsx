@@ -13,7 +13,6 @@ import EnergyUsage from './Pages/EnergyUsage/EnergyUsage.jsx';
 import Reports from './Pages/Reports/Reports.jsx';
 import PrivateRoute from './PrivateRoute';
 
-
 function App() {
 
   return (

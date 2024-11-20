@@ -45,7 +45,7 @@ function Results({ energyData, showResults }) {
                 {solar.potential?.toUpperCase() || 'Unknown'} Potential
               </p>
               <p className="mt-2">Daily Sunlight: {solar.averageDailyHours} hours</p>
-              <p className="mt-2">Annual Generation: {solar.annualGeneration}</p>
+              <p className="mt-2">Annual Generation: {solar.annualGeneration} KWh per year</p>
               <p className="mt-4 text-sm text-gray-600">{solar.recommendation}</p>
             </div>
           </div>

@@ -32,7 +32,7 @@ async function Emmisions(token) {
 
         let emmision = (totalPower * 0.82) / 1000;
 
-        inputCO2.textContent = `${emmision.toFixed(2)} tons`;
+        inputCO2.textContent = `${emmision.toFixed(2)} Kg`;
 
     } catch (error) {
         console.error("Error fetching data:", error);
