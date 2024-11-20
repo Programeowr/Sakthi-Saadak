@@ -562,6 +562,7 @@ async function saveApplianceData(sAppliance, sCompany, sTime, sFreq, sRating) {
         });
 
         console.log('Data saved:', response.data);
+        alert("Data Saved!");
     } catch (error) {
         console.error('Error saving data:', error.response ? error.response.data : error.message);
     }
