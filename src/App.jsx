@@ -11,6 +11,7 @@ import EducationalResources from './Pages/Educational/EducationalResources.jsx';
 import MaterialComparision from './Pages/comparision/MaterialComparision.jsx';
 import EnergyUsage from './Pages/EnergyUsage/EnergyUsage.jsx';
 import Reports from './Pages/Reports/Reports.jsx';
+import PrivateRoute from './PrivateRoute';
 
 
 function App() {
@@ -20,16 +21,48 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/Signup" element={<Signup />} />
-        <Route path="/Home" element={<Home />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/Input" element={<Input />} />
-        <Route path="/Carbon" element={<Co2 />} />
-        <Route path="/Renewable" element={<Renewable />} />
-        <Route path="/Educational" element={<EducationalResources />} />
-        <Route path="/Comparision" element={<MaterialComparision />} />
         <Route path="/Forgot" element={<ForgotPassword />} />
-        <Route path="/EnergyUsage" element={<EnergyUsage />} />
-        <Route path="/Reports" element={<Reports />} />
+        <Route path="/Home" element={
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>
+        } />
+        <Route path="/Input" element={
+          <PrivateRoute>
+            <Input />
+          </PrivateRoute>
+        } />
+        <Route path="/Carbon" element={
+          <PrivateRoute>
+            <Co2 />
+          </PrivateRoute>
+        } />
+        <Route path="/Renewable" element={
+          <PrivateRoute>
+            <Renewable />
+          </PrivateRoute>
+        } />
+        <Route path="/Educational" element={
+          <PrivateRoute>
+            <EducationalResources />
+          </PrivateRoute>
+        } />
+        <Route path="/Comparision" element={
+          <PrivateRoute>
+            <MaterialComparision />
+          </PrivateRoute>
+        } />
+        <Route path="/EnergyUsage" element={
+          <PrivateRoute>
+            <EnergyUsage />
+          </PrivateRoute>
+        } />
+        <Route path="/Reports" element={
+          <PrivateRoute>
+            <Reports />
+          </PrivateRoute>
+        } />
 
       </Routes>
     </Router>
