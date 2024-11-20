@@ -145,7 +145,7 @@ function EducationalResources() {
         </div>
         <div className="edu-scroll-container" id="articles-container">
           <a
-            href="https://www.energy.gov/eere/solar/solar-energy-basics"
+            href="https://unboundsolar.com/solar-information/solar-power-101?srsltid=AfmBOoqolw9vavhzWGeOKU1iCPEqSj1jAK6PlD9MPAPS8nnTOzMIu0mV"
             target="_blank"
             rel="noopener noreferrer"
             className="edu-card"
@@ -158,7 +158,7 @@ function EducationalResources() {
             <p>Department of Energy's complete solar energy guide</p>
           </a>
           <a
-            href="https://www.nrel.gov/research/re-wind.html"
+            href="https://www.irena.org/Energy-Transition/Technology/Wind-energy"
             target="_blank"
             rel="noopener noreferrer"
             className="edu-card"
