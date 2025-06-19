@@ -1,8 +1,10 @@
-# React + Vite
+Sakthi Saadhak is a user-friendly web platform aimed at promoting sustainable energy usage and environmental responsibility. It helps users monitor, track, and optimize their energy consumption through real-time dashboards, historical trends, and AI-generated suggestions. Built with React.js, MongoDB, and Gemini AI, it eliminates the need for expensive hardware, making energy awareness more accessible to all.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project addresses the following UN Sustainable Development Goals (SDGs):
+- SDG 7: Affordable and Clean Energy
+- SDG 12: Responsible Consumption and Production
+- SDG 13: Climate Action
 
-Currently, two official plugins are available:
+By empowering individuals with insights into their energy usage, Sakthi Saadhak encourages smarter consumption, reduced waste, and a more sustainable future.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Link : https://sakthi-saadak-frontend.onrender.com/
